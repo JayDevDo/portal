@@ -1,4 +1,4 @@
-/* initial */
+
 section{
     background-color: cornflowerblue;
     color: burlywood;
@@ -7,4 +7,8 @@ section{
 a {
     background-color: cadetblue;
     color: lightyellow;
+}
+
+div .nonexistingClass{
+    display: inline-block;
 }
