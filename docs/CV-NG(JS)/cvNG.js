@@ -1,12 +1,11 @@
-let lr = '\n';
 
-angular.module('cvngJS')
+angular.module('cvngjs')
 
     .controller('cvInit', cvInit );
 
-    jdAppInit.$inject = [ '$rootScope', '$scope','$http', 'cvService', 'cvFactory' ];
+    cvInit.$inject = [ '$rootScope', '$scope', '$http', 'cvService', 'cvFactory' ];
 
         function cvInit( $rootScope, $scope, $http, cvService, cvFactory) { 
         	$scope 	= $rootScope;
-        	console.log("enter cvInit: arrays loaded from js:", (cv.length>0) );
+        	console.log("enter cvInit: arrays loaded from js:", (cv.jobs.length>0) );
         }

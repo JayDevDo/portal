@@ -1,0 +1,37 @@
+<div ng-repeat="for job in cvAll.jobs; trackBy: $id"> 
+    <h3>{{ job.jobTitle }}</h3>
+    <div>
+        <ul>
+                <li>Company: {{ job.company }}</li>
+                <li>Descr: {{ job.jobDescr }}</li>
+                <li>{{ (job.jobDomain.length>1)? "Domains":"Domain" }}: {{ job.jobDomain }}
+                    <ul>
+                        <li ng-repeat="for domain in jobDomain; trackBy: $id">
+                            <span>{{ domain.key }} </span>
+                            <span>{{ domain }} </span>
+                        </li>
+                    </ul>
+                </li>
+                <li>{{ job.country-location }}</li>
+                <li>{{ job.startDate }}</li>
+                <li>{{ job.endDate }}</li>
+                <li>{{ job.durationMonths }}</li>
+                <li>{{ job.languages }}
+                    <ul>
+                        <li ng-repeat="for lingo in languages; trackBy: $id">
+                            <span>{{ lingo.key }} </span>
+                            <span>{{ lingo }} </span>                
+                        </li>
+                    </ul>  
+                </li>
+                <li>{{ job.toolsUsed }}
+                    <ul>
+                        <li ng-repeat="for tool in toolsUsed; trackBy: $id">
+                            <span>{{ tool.key }} </span>
+                            <span>{{ tool }} </span>                
+                        </li>
+                    </ul>
+                </li>        
+        </ul>
+    </div>
+</div>

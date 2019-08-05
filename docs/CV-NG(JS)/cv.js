@@ -1,5 +1,5 @@
 /* created on Github */
-cv = {
+let cv = {
 	"jobs": [  
 		{
 			"jobTitle" 	:			"Client Service Consultant – HR Solutions",

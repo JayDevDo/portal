@@ -1,9 +1,8 @@
-app = angular.module('cvngJS');
+app = angular.module('cvngjs');
 
 app.factory("cvService", 
             ( $rootScope, $filter, $http )=>{ 
-                console.log("enter cvService factory") ;
-                let msg = "started cvService return fuction";
+                let msg = "enter/started cvService factory from return";
                 console.log(msg);
                 return  { 
                     msg

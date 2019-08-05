@@ -1,11 +1,13 @@
-angular.module('cvngJS')
+angular.module('cvngjs')
 
     .factory( 'cvFactory', 
         function($rootScope, $http, $filter) {
             $rootScope.cvAll = cv;
-            $rootScope.cvAllLen = $rootScope.cvAll.length ;
+            $rootScope.cvAllLen = $rootScope.cvAll.jobs.length ;
             
-            console.log( "enter cvFactory, cvAll len: ", $rootScope.cvAllLen );
+            console.log( "enter cvFactory, cvAll len: ", $rootScope.cvAllLen, lr,
+            "cv len", cv.jobs.length
+            );
 
             return  {
                         jdscorescntr:	()=>{ 
