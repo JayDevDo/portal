@@ -7,3 +7,7 @@ a {
     background-color: cadetblue;
     color: lightyellow;
 }
+
+div .nonexistingClass{
+    display: inline-block;
+}
