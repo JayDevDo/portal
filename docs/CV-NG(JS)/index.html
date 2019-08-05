@@ -30,9 +30,26 @@
       </div>
     
       <div id="mainContent" ng-controller="cvInit">
-
-
-
+          <div id="tabWrapper">
+                <ul class="tabmenu">
+                    <li tabIndex=0 ><a href="#profile">Profile</a></li>
+                    <li tabIndex=1 ><a href="#jobs">Jobs</a></li>
+                    <li tabIndex=2 ><a href="#domains">Domains</a></li>
+                    <li tabIndex=3 ><a href="#languages">Languages</a></li>
+                    <li tabIndex=4 ><a href="#education">Education</a></li>
+                    <li tabIndex=5 ><a href="#tools">Tools & skills</a></li>
+                    <li tabIndex=6 ><a href="#contact">Contact</a></li>
+                </ul>
+          </div>
+          <div id="contentWrapper">
+              <div tabPanel=0 id="profile">panel 0</div>
+              <div tabPanel=1 id="jobs"><cvJobsDrctv class=".cvJobsDrctv"></cvJobsDrctv></div>
+              <div tabPanel=2 id="domains">panel 2</div>
+              <div tabPanel=3 id="languages">panel 3</div>
+              <div tabPanel=4 id="education">panel 4</div>
+              <div tabPanel=5 id="tools">panel 5</div>
+              <div tabPanel=6 id="contact">panel 6</div>
+          </div>
       </div>
 
     </body>

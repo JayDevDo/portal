@@ -3,3 +3,31 @@ body{
     color: silver;
 }
 
+ul{
+    list-style-type: none;
+}
+
+.tabmenu ul {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.inlineli{
+    display: inline-flex;
+    flex-flow: row;
+}
+
+.imlineli span{
+    margin-right: 10px;
+}
+
+.tabmenu li {
+    display: inline;
+}
+
+.tabmenu li:hover {
+    background-color: cyan;
+  }
+

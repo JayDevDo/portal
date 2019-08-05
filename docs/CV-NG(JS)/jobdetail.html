@@ -1,37 +1,34 @@
-<div ng-repeat="for job in cvAll.jobs; trackBy: $id"> 
-    <h3>{{ job.jobTitle }}</h3>
-    <div>
+<div class="jobItem" ng-repeat="job in cvAll.jobs"> 
+    <h3 class="jobHeader">{{ job.jobTitle }}</h3>
+    <div class="jobDetail">
         <ul>
                 <li>Company: {{ job.company }}</li>
                 <li>Descr: {{ job.jobDescr }}</li>
-                <li>{{ (job.jobDomain.length>1)? "Domains":"Domain" }}: {{ job.jobDomain }}
+                <li>{{ (job.jobDomain.length>1)? "Domains":"Domain" }}:
                     <ul>
-                        <li ng-repeat="for domain in jobDomain; trackBy: $id">
-                            <span>{{ domain.key }} </span>
-                            <span>{{ domain }} </span>
+                        <li class="inlineli" ng-repeat="domain in job.jobDomain">
+                            <span>{{ (job.jobDomain.length>1)? " - ":"" }} {{ domain }} </span>
                         </li>
                     </ul>
                 </li>
-                <li>{{ job.country-location }}</li>
-                <li>{{ job.startDate }}</li>
-                <li>{{ job.endDate }}</li>
-                <li>{{ job.durationMonths }}</li>
-                <li>{{ job.languages }}
+                <li>Location: {{ job.countryAndlocation }}</li>
+                <li>Start Date: {{ job.startDate }}</li>
+                <li>End Date: {{ job.endDate }}</li>
+                <li>Duration: {{ job.durationMonths }} months</li>
+                <li>Languages
                     <ul>
-                        <li ng-repeat="for lingo in languages; trackBy: $id">
-                            <span>{{ lingo.key }} </span>
-                            <span>{{ lingo }} </span>                
+                        <li class="inlineli" ng-repeat="lingo in job.languages">
+                            <span>{{ (job.languages.length>1)? " - ":"" }} {{ lingo }}</span>                
                         </li>
                     </ul>  
                 </li>
-                <li>{{ job.toolsUsed }}
+                <li>Tools used
                     <ul>
-                        <li ng-repeat="for tool in toolsUsed; trackBy: $id">
-                            <span>{{ tool.key }} </span>
-                            <span>{{ tool }} </span>                
+                        <li ng-repeat="tool in job.toolsUsed">
+                            <span> - {{ tool }} </span>                
                         </li>
                     </ul>
-                </li>        
+                </li>
         </ul>
     </div>
 </div>
