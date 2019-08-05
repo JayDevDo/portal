@@ -1,7 +1,7 @@
 angular.module('cvngJS')
 
     .factory( 'cvFactory', 
-        function($rootScope, $http, $filter, cvService) {
+        function($rootScope, $http, $filter) {
             $rootScope.cvAll = cv;
             $rootScope.cvAllLen = $rootScope.cvAll.length ;
             
