@@ -1,13 +1,17 @@
 section{
-    background-color: cornflowerblue;
-    color: burlywood;
+    color: black
 }
 
 a {
     background-color: cadetblue;
     color: lightyellow;
+    margin-block: 12px;
 }
 
 div .nonexistingClass{
     display: inline-block;
+}
+
+body{
+    background-color: cornflowerblue;
 }
