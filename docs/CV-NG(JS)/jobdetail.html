@@ -1,34 +1,53 @@
 <div class="jobItem" ng-repeat="job in cvAll.jobs"> 
-    <h3 class="jobHeader">{{ job.jobTitle }}</h3>
-    <div class="jobDetail">
+    <h3 class="jobHeader" 
+        ng-click="jobHandler($index)" 
+        ng-mouseover="jobHandler($index)" 
+        ng-class="{'activeJob': $index === activeJob }"
+    >
+        {{ job.jobTitle }}
+    </h3>
+    <div class="jobDetail" ng-show="isActJob($index)">
         <ul>
-                <li>Company: {{ job.company }}</li>
-                <li>Descr: {{ job.jobDescr }}</li>
-                <li>{{ (job.jobDomain.length>1)? "Domains":"Domain" }}:
-                    <ul>
-                        <li class="inlineli" ng-repeat="domain in job.jobDomain">
-                            <span>{{ (job.jobDomain.length>1)? " - ":"" }} {{ domain }} </span>
-                        </li>
-                    </ul>
-                </li>
-                <li>Location: {{ job.countryAndlocation }}</li>
-                <li>Start Date: {{ job.startDate }}</li>
-                <li>End Date: {{ job.endDate }}</li>
-                <li>Duration: {{ job.durationMonths }} months</li>
-                <li>Languages
-                    <ul>
-                        <li class="inlineli" ng-repeat="lingo in job.languages">
-                            <span>{{ (job.languages.length>1)? " - ":"" }} {{ lingo }}</span>                
-                        </li>
-                    </ul>  
-                </li>
-                <li>Tools used
-                    <ul>
-                        <li ng-repeat="tool in job.toolsUsed">
-                            <span> - {{ tool }} </span>                
-                        </li>
-                    </ul>
-                </li>
+            <li>
+                <span class="jdHeader">Company:</span> 
+                <span class="jdItem">{{ job.company }}</span>
+            </li>
+            <li><span class="jdHeader">Descr:</span> 
+                <span class="jdItem">{{ job.jobDescr }}</span>
+            </li>
+            <li>
+                <span class="jdHeader">{{ (job.jobDomain.length>1)? "Domains":"Domain" }}:</span>
+                <span   ng-repeat="domain in job.jobDomain" 
+                        class="jdItem" 
+                    > - {{ domain }}
+                </span>
+            </li>
+            <li>
+                <span class="jdHeader">Location:</span> 
+                <span class="jdItem">{{ job.countryAndlocation }}</span>
+            </li>
+            <li><span class="jdHeader">Start Date:</span> 
+                <span class="jdItem">{{ job.startDate }}</span>
+            </li>
+            <li><span class="jdHeader">End Date:</span> 
+                <span class="jdItem">{{ job.endDate }}</span>
+            </li>
+            <li><span class="jdHeader">Duration:</span> 
+                <span class="jdItem">{{ job.durationMonths }} months</span>
+            </li>
+            <li><span class="jdHeader">Languages:</span> 
+                <span   ng-repeat="lingo in job.languages"
+                        class="jdItem"  
+                > - {{ lingo }}
+                </span>
+            </li>
+            <li>
+                <span class="jdHeader">Tools used:</span> 
+                <span   class="jdItem" 
+                        ng-repeat="tool in job.toolsUsed"
+                > - {{ tool }}
+                </span>
+            </li>
         </ul>
     </div>
 </div>

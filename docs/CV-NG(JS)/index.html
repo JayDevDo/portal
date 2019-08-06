@@ -1,58 +1,63 @@
-<head>
-        <title>Jay's CV with Angular JS</title>
-          <link rel="stylesheet" 
+<html>
+  <head>
+    <title>Jay's CV with Angular JS</title>
+    <link rel="stylesheet" 
                 type="text/css" 
                 href="ngJS.css"
-        >
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="cv.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-animate.min.js"></script>
-    </head>
+    >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="cv.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-animate.min.js"></script>
+  </head>
     
     <!-- CV-NG(JS)/index.html -->
     
     <body ng-app="cvngjs">
-      <div class="sk-circle">
-        <div class="sk-circle1 sk-child"></div>
-        <div class="sk-circle2 sk-child"></div>
-        <div class="sk-circle3 sk-child"></div>
-        <div class="sk-circle4 sk-child"></div>
-        <div class="sk-circle5 sk-child"></div>
-        <div class="sk-circle6 sk-child"></div>
-        <div class="sk-circle7 sk-child"></div>
-        <div class="sk-circle8 sk-child"></div>
-        <div class="sk-circle9 sk-child"></div>
-        <div class="sk-circle10 sk-child"></div>
-        <div class="sk-circle11 sk-child"></div>
-        <div class="sk-circle12 sk-child"></div>
-      </div>
-    
-      <div id="mainContent" ng-controller="cvInit">
+      <div class="wrap">
+        <div id="mainContent" ng-controller="cvInit">
           <div id="tabWrapper">
-                <ul class="tabmenu">
-                    <li tabIndex=0 ><a href="#profile">Profile</a></li>
-                    <li tabIndex=1 ><a href="#jobs">Jobs</a></li>
-                    <li tabIndex=2 ><a href="#domains">Domains</a></li>
-                    <li tabIndex=3 ><a href="#languages">Languages</a></li>
-                    <li tabIndex=4 ><a href="#education">Education</a></li>
-                    <li tabIndex=5 ><a href="#tools">Tools & skills</a></li>
-                    <li tabIndex=6 ><a href="#contact">Contact</a></li>
-                </ul>
+            <ul class="tabs group">
+              <li tabIndex=0 ng-click="tabHandler(0)" ><a href="#profile">Profile</a></li>
+              <li tabIndex=1 ng-click="tabHandler(1)" ><a href="#jobs">Jobs</a></li>
+              <li tabIndex=2 ng-click="tabHandler(2)" ><a href="#domains">Domains</a></li>
+              <li tabIndex=3 ng-click=tabHandler(3) ><a href="#languages">Languages</a></li>
+              <li tabIndex=4 ng-click=tabHandler(4) ><a href="#education">Education</a></li>
+              <li tabIndex=5 ng-click=tabHandler(5) ><a href="#tools">Tools & skills</a></li>
+              <li tabIndex=6 ng-click=tabHandler(6) ><a href="#contact">Contact</a></li>
+            </ul>
           </div>
+
           <div id="contentWrapper">
-              <div tabPanel=0 id="profile">panel 0</div>
-              <div tabPanel=1 id="jobs"><cvJobsDrctv class=".cvJobsDrctv"></cvJobsDrctv></div>
-              <div tabPanel=2 id="domains">panel 2</div>
-              <div tabPanel=3 id="languages">panel 3</div>
-              <div tabPanel=4 id="education">panel 4</div>
-              <div tabPanel=5 id="tools">panel 5</div>
-              <div tabPanel=6 id="contact">panel 6</div>
+              <div tabPanel=0 ng-show="isActTab(0)" id="profile">
+                {{ cvAll.profile[0] }}
+              </div>
+              <div tabPanel=1 ng-show="isActTab(1)" id="jobs">
+                <cvJobsDrctv class=".cvJobsDrctv"></cvJobsDrctv>
+              </div>
+              <div tabPanel=3 ng-show="isActTab(2)" id="domains">
+                <cvDomainsDrctv class="cvDomainsDrctv"></cvDomainsDrctv>
+              </div>
+              <div tabPanel=3 ng-show="isActTab(3)" id="languages">
+                <cvLingosDrctv class="cvLingosDrctv"></cvLingosDrctv>
+              </div>
+              <div tabPanel=4 ng-show="isActTab(4)" id="education">
+                panel 4
+              </div>
+              <div tabPanel=5 ng-show="isActTab(5)" id="tools">
+                panel 5
+              </div>
+              <div tabPanel=6 ng-show="isActTab(6)" id="contact">
+                panel 6
+              </div>
           </div>
+
       </div>
 
-    </body>
+    </div>
+  </body>
+    
     <script>
         let lr = '\n';
         angular.module('cvngjs', ['ngAnimate'] ) ;	
@@ -61,5 +66,5 @@
     <script src="cvFactory.js" ></script>
     <script src="cvDirective.js" ></script>
     <script src="cvNG.js" ></script>
-    </html>
+</html>
     

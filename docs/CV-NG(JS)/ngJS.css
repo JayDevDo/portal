@@ -1,17 +1,50 @@
 body{
-    background-color: #383838;
+    background-color: #2A293E;
     color: silver;
 }
 
-ul{
-    list-style-type: none;
+.wrap {
+	margin: 0 auto;
 }
 
-.tabmenu ul {
+#contentWrapper{
+    overflow-y: scroll;
+    margin: 0 auto;
+    background: #2A293E;
+    -webkit-box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
+    -moz-box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
+    box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
+    -webkit-border-bottom-right-radius: 8px;
+    -webkit-border-bottom-left-radius: 8px;
+    -moz-border-radius-bottomright: 8px;
+    -moz-border-radius-bottomleft: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+p{
+    font-family: 'Open Sans', sans-serif;
+    padding: 15px 20px;
+    color: #ffffff;
+    line-height: 22px;
+    font-size: 18px;
     margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+}
+
+div.jobDetail{
+    background-color: #F3E0BE;
+}
+
+.jobDetail ul{
+    list-style: none;
+}
+
+.jdHeader{
+    color: #5A3E36;
+}
+
+.jdItem{
+    color: #006E6D;;
 }
 
 .inlineli{
@@ -19,15 +52,102 @@ ul{
     flex-flow: row;
 }
 
-.imlineli span{
+.inlineli span{
     margin-right: 10px;
 }
 
-.tabmenu li {
-    display: inline;
+#profile {
+    padding: 30px 30 10 10;
+    margin: auto;
+	font-size: 30px;
+	text-align: center;	
+	text-decoration: none;
+    width: 60%;
 }
 
-.tabmenu li:hover {
-    background-color: cyan;
-  }
+ul.tabs {
+	height: 80px;
+	margin: 0 auto;
+	list-style: none;
+	overflow: hidden;
+  	padding: 0;
+}
 
+ul.tabs li {	
+    float: left;
+    width: 14.25%;
+}
+
+ul.tabs li a {
+	position: relative;
+	display: block;
+	height: 30px;
+	margin-top: 10px;
+	padding: 10px 0 0 0;
+	font-size: 24px;
+	text-align: center;	
+	text-decoration: none;
+	color: #ffffff;
+	background-color: darkblue;
+	-webkit-box-shadow: 8px 12px 25px 2px rgba(0,0,0,0.4);
+	-moz-box-shadow: 8px 12px 25px 2px rgba(0,0,0,0.4);
+	box-shadow: 8px 12px 25px 2px rgba(0,0,0,0.4);
+	border: 0px solid #000000;
+	-webkit-transition: padding 0.2s ease, margin 0.2s ease;
+	-moz-transition: padding 0.2s ease, margin 0.2s ease;
+	-o-transition: padding 0.2s ease, margin 0.2s ease;
+	-ms-transition: padding 0.2s ease, margin 0.2s ease;
+	transition: padding 0.2s ease, margin 0.2s ease;
+}
+
+.tabs li:first-child a {
+	z-index: 7;
+	-webkit-border-top-left-radius: 8px;
+	-moz-border-radius-topleft: 8px;
+	border-top-left-radius: 8px;
+}
+
+.tabs li:nth-child(2) a {	z-index: 6;}
+.tabs li:nth-child(3) a {	z-index: 5;}
+.tabs li:nth-child(4) a {	z-index: 4;}
+.tabs li:nth-child(5) a {	z-index: 3;}
+.tabs li:nth-child(6) a {	z-index: 2;}
+
+.tabs li:last-child a {
+	z-index: 1;
+	-webkit-box-shadow: 2px 8px 25px -2px rgba(0,0,0,0.3);
+	-moz-box-shadow: 2px 8px 25px -2px rgba(0,0,0,0.3);
+	box-shadow: 2px 8px 25px -2px rgba(0,0,0,0.3);
+	-webkit-border-top-right-radius: 8px;
+	-moz-border-radius-topright: 8px;
+	border-top-right-radius: 8px;
+}
+
+ .activeJob{
+    background-color: darkgoldenrod;
+    color: #ffffff;
+}
+
+ul.tabs li a:hover {
+	margin: 5px 0 0 0;
+	padding: 10px 0 5px 0;
+}
+
+ul.tabs li a.active {
+	margin: 10px 0 0 0;
+	padding: 10px 0 10px 0;
+	background: #545f60;
+	color: #ffff99;
+	z-index: 4;
+	outline: none;
+}
+
+.group:before,
+.group:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.group:after {
+    clear: both;
+}
