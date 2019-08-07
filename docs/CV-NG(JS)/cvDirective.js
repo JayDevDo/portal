@@ -164,6 +164,47 @@ angular.module('cvngjs')
                 }
         }
     }
+/*
+<div class="cvLocation">
+    <ul> 
+        <li class="locationItem" onclick="jobFilter(5,'NL')">
+            NL - Tilburg
+        </li> 
+        <li class="locationItem" onclick="jobFilter(5,'FR')">
+            FR - 
+            <ul>
+                <li>Saumur (49)</li>
+                <li>Vias (34)</li>
+                <li>Lyon (69)</li>
+                <li>Saint-Sorlin-d'Arves (73)</li>
+                <li>Oyonnax (01)</li>
+                <li>Cap d'Agde (34)</li>
+                <li>Bressolles (01)</li>
+                <li>Gap (05)</li>
+            </ul>
+        </li>
+        <li> </li>
+        <li class="locationItem" onclick="jobFilter(5,'CZ')">
+            CZ - 
+            <ul>
+                <li>Prague</li>
+                <li>Brno</li>
+            </ul>
+        </li>
+        <li> </li>
+        <li class="locationItem" onclick="jobFilter(5,'GR')">
+            GR - Athens
+        </li> 
+        <li class="locationItem" onclick="jobFilter(5,'SW')">
+            SW - Stockholm
+        </li> 
+        <li class="locationItem" onclick="jobFilter(5,'RO')">
+            RO - Bucharest
+        </li> 
+    </ul>
+</div>
+*/
+
 
 
 angular.module('cvngjs')
