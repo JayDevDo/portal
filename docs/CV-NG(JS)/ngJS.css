@@ -33,6 +33,10 @@ p{
     margin: 0;
 }
 
+.maplink a{
+    color: #ffff99;
+}
+
 .maplink a p {display:none;}
 .maplink a:hover p {
   display: inline-block;
