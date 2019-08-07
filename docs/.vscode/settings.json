@@ -1,8 +1,5 @@
 {
     "github.customPullRequestDescription": "singleLine",
     "github.remoteName": "Master",
-    "git.autofetch": true,
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false
-/*    "github.accessToken": "74d65fb651133013c29b29deaff6c30fe247a28b"*/
+    "git.autofetch": true
 }
