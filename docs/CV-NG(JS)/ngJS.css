@@ -33,6 +33,16 @@ p{
     margin: 0;
 }
 
+.maplink a p {display:none;}
+.maplink a:hover p {
+  display: inline-block;
+  opacity: 60%;
+  margin-left: 15px;
+}
+.maplink a:hover {
+	display:inline-block;
+}
+
 #srchResults {
     background-color: #ff9933;
     color: #660066;
