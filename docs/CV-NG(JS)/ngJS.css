@@ -26,7 +26,7 @@ body{
 
 p{
     font-family: 'Open Sans', sans-serif;
-    padding: 15px 20px;
+    padding: 5px 8px;
     color: #ffffff;
     line-height: 22px;
     font-size: 18px;
@@ -139,9 +139,9 @@ ul.tabs li a {
 	text-decoration: none;
 	color: #ffffff;
 	background-color: darkblue;
-	-webkit-box-shadow: 8px 12px 25px 2px rgba(0,0,0,0.4);
-	-moz-box-shadow: 8px 12px 25px 2px rgba(0,0,0,0.4);
-	box-shadow: 8px 12px 25px 2px rgba(0,0,0,0.4);
+	-webkit-box-shadow: 8px 12px 10px 2px rgba(0,0,0,0.4);
+	-moz-box-shadow: 8px 12px 10px 2px rgba(0,0,0,0.4);
+	box-shadow: 8px 12px 10px 2px rgba(0,0,0,0.4);
 	border: 0px solid #000000;
 	-webkit-transition: padding 0.2s ease, margin 0.2s ease;
 	-moz-transition: padding 0.2s ease, margin 0.2s ease;
@@ -165,9 +165,9 @@ ul.tabs li a {
 
 .tabs li:last-child a {
 	z-index: 1;
-	-webkit-box-shadow: 2px 8px 25px -2px rgba(0,0,0,0.3);
-	-moz-box-shadow: 2px 8px 25px -2px rgba(0,0,0,0.3);
-	box-shadow: 2px 8px 25px -2px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
+	-moz-box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
+	box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
 	-webkit-border-top-right-radius: 8px;
 	-moz-border-radius-topright: 8px;
 	border-top-right-radius: 8px;
