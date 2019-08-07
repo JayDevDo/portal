@@ -1,17 +1,38 @@
-section{
-    color: black
-}
-
-a {
-    background-color: cadetblue;
-    color: lightyellow;
-    margin-block: 12px;
-}
-
-div .nonexistingClass{
-    display: inline-block;
-}
-
 body{
     background-color: cornflowerblue;
 }
+
+.wrapper{
+    display: flex;
+    flex-flow: column;
+}
+
+div.section{
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 3px solid black;
+    border-radius: 10px;
+    width: 45%;
+}
+
+div.subsection{
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+div.subsection h2{
+    color: black;
+    padding-left: 25%;
+}
+
+button{
+    font-size: 32px;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.hidden{
+    display: none;
+}
+
