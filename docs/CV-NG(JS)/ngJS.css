@@ -1,6 +1,8 @@
 body{
     background-color: #2A293E;
     color: silver;
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 
 .wrap {
@@ -31,8 +33,25 @@ p{
     margin: 0;
 }
 
+#srchResults {
+    background-color: #ff9933;
+    color: #660066;
+}
+
+#srchResults button{
+    margin-left: 10%;
+}
+
 div.jobDetail{
     background-color: #F3E0BE;
+}
+
+div.toolDetail{
+    background-color: #F3E0BE;
+}
+
+.toolHeader{
+    background-color: #b8860b;
 }
 
 .jobDetail ul{
@@ -70,12 +89,13 @@ ul.tabs {
 	margin: 0 auto;
 	list-style: none;
 	overflow: hidden;
-  	padding: 0;
+    padding: 0;
+    font-weight: bold;  
 }
 
 ul.tabs li {	
     float: left;
-    width: 14.25%;
+    width: 12.5%;
 }
 
 ul.tabs li a {

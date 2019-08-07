@@ -99,14 +99,14 @@ let cv = {
 		},
 		{
 			"jobTitle" 	:			"Warehouse/expedition operator",
-			"company" 	:			"3 yearly contracts via a temp agency",
+			"company" 	:			"Multiple contracts via a temp agencies",
 			"startDate" : 			"2002-01",
 			"endDate" 	: 			"2005-04",
 			"jobDescr" 	: 			"Order-picking, route preperation, loading, unloading, returns handling, Forklift, EU transport document preperation, quality control, team rotation planning.",
-			"countryAndlocation" :	"NL-Tilburg",
-			"languages" : 			["NL","EN"],
+			"countryAndlocation" :	"NL-Tilburg, FR-Bressoles (01), Oyonnax (01)",
+			"languages" : 			["NL","EN","FR"],
 			"toolsUsed" :			["SAP-ERP","Forklift"],
-			"durationMonths" :		36,
+			"durationMonths" :		42,
 			"jobDomain" :			["Warehouse"]
 		},
 		{
@@ -168,12 +168,12 @@ let cv = {
 	],
 
 	"jobLocations" : {
-		"NL" : ["Tilburg"],
-		"FR" : ["Saumur (49)", "Vias (34)", "Lyon (69)", "Saint-Sorlin-d'Arves (73)", "Oyonnax (01)", "Cap d'Agde (34)" ,"Bressolles (01)", "Gap (05)"],
-		"CZ" : ["Prague", "Brno"],
-		"GR" : ["Athens"],
+		"RO" : ["Bucharest"],
 		"SW" : ["Stockholm"],
-		"RO" : ["Bucharest"]
+		"GR" : ["Athens"],
+		"CZ" : ["Prague", "Brno"],
+		"FR" : ["Saumur (49)", "Vias (34)", "Lyon (69)", "Saint-Sorlin-d'Arves (73)", "Oyonnax (01)", "Cap d'Agde (34)" ,"Bressolles (01)", "Gap (05)"],
+		"NL" : ["Tilburg"]
 	},
 
 	"languages" : [
@@ -235,11 +235,11 @@ let cv = {
 		},
 
 	"education" : [
-					"1985-1990 - Gymnasium: Dutch, English, French, German, History, National- and business economics",
-					"1990-1991 - First year of the Dutch University of Tourism in Breda",
-					"1992-1993 - Assistant logistics manager", 
-					"1998 - Sybase SQL basics",
-					"1999 - ITIL Foundations"
+					"1985-1990: Gymnasium: Dutch, English, French, German, History, National- and business economics",
+					"1990-1991: First year of the Dutch University of Tourism in Breda",
+					"1992-1993: Assistant logistics manager", 
+					"1998: Sybase SQL basics",
+					"1999: ITIL Foundations"
 				],
 
 	"profile" : ["I'm a result orientated, dependable team player. Having over 15 years of experience in several fields of customer service using all of my language skills (English, Dutch, French and German). I can analyse fast, work meticulously and inform the customer of the solution. Constantly looking for improvement, I use my IT background and advanced MS Office expertise to save time and manage multitasking."],

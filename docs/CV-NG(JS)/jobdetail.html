@@ -1,9 +1,14 @@
-<div class="jobItem" ng-repeat="job in cvAll.jobs"> 
+<div    class="jobItem" 
+        ng-repeat="job in cvAll.jobs"
+        ng-show="jobFilter($index)"
+> 
+    <!-- ng-mouseover="jobHandler($index)" -->
     <h3 class="jobHeader" 
         ng-click="jobHandler($index)" 
-        ng-mouseover="jobHandler($index)" 
         ng-class="{'activeJob': $index === activeJob }"
     >
+    <i class="fa" ng-show="$index === activeJob">&#xf078;</i>
+    <i class="fa" ng-show="$index != activeJob">&#xf054;</i>
         {{ job.jobTitle }}
     </h3>
     <div class="jobDetail" ng-show="isActJob($index)">

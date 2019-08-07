@@ -5,6 +5,9 @@
                 type="text/css" 
                 href="ngJS.css"
     >
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    >
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="cv.js"></script>
@@ -19,13 +22,14 @@
         <div id="mainContent" ng-controller="cvInit">
           <div id="tabWrapper">
             <ul class="tabs group">
-              <li tabIndex=0 ng-click="tabHandler(0)" ><a href="#profile">Profile</a></li>
-              <li tabIndex=1 ng-click="tabHandler(1)" ><a href="#jobs">Jobs</a></li>
-              <li tabIndex=2 ng-click="tabHandler(2)" ><a href="#domains">Domains</a></li>
-              <li tabIndex=3 ng-click=tabHandler(3) ><a href="#languages">Languages</a></li>
-              <li tabIndex=4 ng-click=tabHandler(4) ><a href="#education">Education</a></li>
-              <li tabIndex=5 ng-click=tabHandler(5) ><a href="#tools">Tools & skills</a></li>
-              <li tabIndex=6 ng-click=tabHandler(6) ><a href="#contact">Contact</a></li>
+              <li tabIndex=0 ng-click="tabHandler(0)" ><a href="#profile" >Profile</a></li>
+              <li tabIndex=1 ng-click="tabHandler(1)" ><a href="#jobs"    >Jobs</a></li>
+              <li tabIndex=2 ng-click="tabHandler(2)" ><a href="#domains" >Domains</a></li>
+              <li tabIndex=3 ng-click=tabHandler(3)   ><a href="#languages">Languages</a></li>
+              <li tabIndex=4 ng-click=tabHandler(4)   ><a href="#education">Education</a></li>
+              <li tabIndex=5 ng-click=tabHandler(5)   ><a href="#tools"   >Tools & skills</a></li>
+              <li tabIndex=6 ng-click=tabHandler(6)   ><a href="#locations">Locations</a></li>
+              <li tabIndex=7 ng-click=tabHandler(7)   ><a href="#contact" >Contact</a></li>
             </ul>
           </div>
 
@@ -34,6 +38,11 @@
                 {{ cvAll.profile[0] }}
               </div>
               <div tabPanel=1 ng-show="isActTab(1)" id="jobs">
+                <div id="srchResults" ng-show="fltrRes.active">
+                  <span>Found {{ fltrRes.found }} jobs </span>
+                  <span>with {{ fltrRes.key.srchKey }} being {{ fltrRes.key.value }} </span>
+                  <span><button ng-click="clearFilter()">clear filter</button></span>
+                </div>
                 <cvJobsDrctv class=".cvJobsDrctv"></cvJobsDrctv>
               </div>
               <div tabPanel=3 ng-show="isActTab(2)" id="domains">
@@ -43,13 +52,16 @@
                 <cvLingosDrctv class="cvLingosDrctv"></cvLingosDrctv>
               </div>
               <div tabPanel=4 ng-show="isActTab(4)" id="education">
-                panel 4
+                <cvEducationDrctv class="cvEducationDrctv"></cvEducationDrctv>
               </div>
               <div tabPanel=5 ng-show="isActTab(5)" id="tools">
-                panel 5
+                  <cvToolsDrctv class="cvToolsDrctv"></cvToolsDrctv>
               </div>
-              <div tabPanel=6 ng-show="isActTab(6)" id="contact">
-                panel 6
+              <div tabPanel=6 ng-show="isActTab(6)" id="locations">
+                  <cvLocationsDrctv class="cvLocationsDrctv"></cvLocationsDrctv>
+              </div>  
+              <div tabPanel=7 ng-show="isActTab(7)" id="contact">
+                <cvContactDrctv class="cvContactDrctv"></cvContactDrctv>
               </div>
           </div>
 
