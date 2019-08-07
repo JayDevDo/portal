@@ -147,16 +147,19 @@ angular.module('cvngjs')
     function cvLocationsDrctv($compile) {
         return {
                 restrict:   'EAC',
-                template:   `<div    ng-repeat="(key, value) in cvAll.jobLocations"
-                                     ng-click="fltrByCountry(key)"
-                            >
-                            {{ key }}
-                                <ul>
-                                    <li ng-repeat="city in value" >
-                                        <span>{{ city }}</span>
-                                    </li>
-                                </ul>
-                            </div>    
+                template:   `<ul>
+                                <li class="locationItem"
+                                    ng-click="fltrByCountry(key)"
+                                    ng-repeat="(key, value) in cvAll.jobLocations"
+                                >
+                                {{ key }}
+                                    <ul>
+                                        <li ng-repeat="city in value" >
+                                            <span>{{ city }}</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>    
                             `,
                 replace: true,
                 link: function(scope, element, attrs){
@@ -164,6 +167,7 @@ angular.module('cvngjs')
                 }
         }
     }
+
 
 angular.module('cvngjs')
     .directive('cvToolsDrctv', cvToolsDrctv);

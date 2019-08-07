@@ -68,6 +68,22 @@ div.toolDetail{
     background-color: #b8860b;
 }
 
+.activeJob{
+    background-color: darkgoldenrod;
+    color: #ffffff;
+}
+
+.locationItem{
+    list-style-type: none;
+    list-style: none;
+}
+
+.locationItem ul li{
+    list-style-type: none;
+    list-style: none;
+}
+
+
 .jobDetail ul{
     list-style: none;
 }
@@ -155,11 +171,6 @@ ul.tabs li a {
 	-webkit-border-top-right-radius: 8px;
 	-moz-border-radius-topright: 8px;
 	border-top-right-radius: 8px;
-}
-
- .activeJob{
-    background-color: darkgoldenrod;
-    color: #ffffff;
 }
 
 ul.tabs li a:hover {
