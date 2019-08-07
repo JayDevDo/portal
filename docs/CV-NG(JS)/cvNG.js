@@ -73,5 +73,4 @@ angular.module('cvngjs')
                 console.log("$scope.fltrArr:", $scope.fltrArr, lr, "$scope.fltrRes:", $scope.fltrRes );
                 $scope.tabHandler(1);
             }
-
         }
