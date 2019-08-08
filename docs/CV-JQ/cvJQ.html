@@ -3,32 +3,14 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV Jay van Doormalen JQ(UI)</title>
-  <!-- link   rel="stylesheet" type="text/css" href="jquery-ui-1.12.1.custom/jquery-ui.min.css" -->
-  <!-- script src="jquery-ui-1.12.1.custom/jquery-ui.min.js" charset="utf-8"></script -->
-
   	<link   rel="stylesheet" href="jqui/jquery-ui.css">
   	<link   rel="stylesheet" type="text/css" href="cvJQ.css">
   	<script src="jQuery3.4.1.js" charset="utf-8"></script>
   	<script src="jqui/jquery-ui.js"></script>
 	  <script src="cv.js"></script>
-
 </head>
 <!-- CV/Jquery/cvJQ.html -->
 <body>
-  <div class="sk-circle">
-    <div class="sk-circle1 sk-child"></div>
-    <div class="sk-circle2 sk-child"></div>
-    <div class="sk-circle3 sk-child"></div>
-    <div class="sk-circle4 sk-child"></div>
-    <div class="sk-circle5 sk-child"></div>
-    <div class="sk-circle6 sk-child"></div>
-    <div class="sk-circle7 sk-child"></div>
-    <div class="sk-circle8 sk-child"></div>
-    <div class="sk-circle9 sk-child"></div>
-    <div class="sk-circle10 sk-child"></div>
-    <div class="sk-circle11 sk-child"></div>
-    <div class="sk-circle12 sk-child"></div>
-  </div>
 
   <div id="mainContent">
     <div id="tabs">
@@ -60,6 +42,7 @@
   function stopSpinner(){ $(".sk-circle").hide(); }
 
   let lr = '\n';
+  let pageLoc = location.origin;
   let jsProfile;
   let jsDomains;
   let jsJobs;
@@ -200,6 +183,7 @@
       $.each(jsContact, (key,val)=>{accContentContact.push("<li>"+key+": "+val+"</li>");});
       accContentContact.push( "<li>pdf: <a href='CV-JayVanDoormalen.pdf' target='_blank'> click to download</a></li>" ); 
       accContentContact.push("</ul>");
+      accContentContact.push( "<i>This page is hosted on '" + pageLoc + "'</i>");
       $( "<div>",{"class": "cvContact", html: accContentContact.join("") }).appendTo("#contact");
     }
   );
