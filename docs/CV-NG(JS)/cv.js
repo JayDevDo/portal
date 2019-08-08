@@ -229,6 +229,7 @@ let cv = {
 									"SalesForce (and a few other CRM like Siebel)",
 									"Git-Github",
 									"JIRA",
+									"Confluence",
 									"citrix",
 									"Firefox, Safari, Opera, Slimjet"
 								]
