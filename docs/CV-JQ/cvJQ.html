@@ -96,7 +96,7 @@
         ( key, val )=>{
           let dmnStr = (val=="CS")? "Customer Service":val ;
           let dmnyrs = (expRes[key] / 12).toFixed(0) ;
-          accContentDomains.push("<li class='domainItem'"+" onclick=jobFilter(9,'"+val.toString()+"')"+">"+dmnStr+" ("+dmnyrs+" yrs)</li>"); 
+          accContentDomains.push("<li class='domainItem'"+" onclick=jobFilter(9,'"+val.toString()+"')"+" title='click to filter jobs by domain'>"+dmnStr+" ("+dmnyrs+" yrs)</li>"); 
         } 
       );
       accContentDomains.push("</ul>");
@@ -145,7 +145,7 @@
       $.each( jsLocations, 
         ( key, val )=>{
           if( val.length > 1 ){
-              let tmpLochtml=["<li class='locationItem' onclick=jobFilter(5,'"+key.toString()+"')"+">"+key+" - <ul>"];
+              let tmpLochtml=["<li class='locationItem' onclick=jobFilter(5,'"+key.toString()+"')"+" title='click to filter jobs by location' >"+key+" - <ul>"];
               for(let i=0; i<val.length;i++){ tmpLochtml.push("<li>" + val[i] + "</li>") }
               tmpLochtml.push("</ul><li>");
               accContentLocation.push( tmpLochtml.join("") );
@@ -156,7 +156,7 @@
       });
       accContentLocation.push("</ul>");
       let gmap = ["<div class='maplink' >",
-                  "<a href='https://drive.google.com/open?id=1FkuGGgHPt2XS-D3BdE6dCJGqLoY&usp=sharing' target='_blank'>Click to open with Google maps<p>opens in a new tab</p></a>",
+                  "<a href='https://drive.google.com/open?id=1FkuGGgHPt2XS-D3BdE6dCJGqLoY&usp=sharing' target='_blank' title='opens in a new tab'>Click to open with Google maps</a>",
                   "</div>"
                   ];
       $( "<div>",{"class": "cvLocationLink", html: gmap.join("") }).appendTo("#locations");
