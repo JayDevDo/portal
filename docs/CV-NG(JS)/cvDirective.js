@@ -70,7 +70,7 @@ angular.module('cvngjs')
                                         </span>
                                     </li>
                                 </ul>
-                                <i>This page is hosted on: {{ pageLoc }}</i>
+                                <span class="jdItem">This page is hosted on: {{ pageLoc }}</span>
                             </div>`,
                 replace: true,
                 link: function(scope, element, attrs){
