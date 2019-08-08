@@ -86,6 +86,7 @@ angular.module('cvngjs')
                 restrict:   'EAC',
                 template:   `
                             <h3 ng-repeat="domain in domains"
+                                title="click to filter jobs by domain"
                                 ng-click="fltrByDomain( domain.domain )"
                             >
                                 {{ domain.domain }} 
@@ -149,6 +150,7 @@ angular.module('cvngjs')
                 restrict:   'EAC',
                 template:   `<ul>
                                 <li class="locationItem"
+                                    title="click to filter jobs by location"
                                     ng-click="fltrByCountry(key)"
                                     ng-repeat="(key, value) in cvAll.jobLocations"
                                 >

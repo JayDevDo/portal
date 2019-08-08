@@ -21,7 +21,7 @@
       <div class="wrap">
         <div id="mainContent" ng-controller="cvInit">
           <div id="tabWrapper">
-            <ul class="tabs group">
+            <ul class="tabs">
               <li tabIndex=0 ng-click="tabHandler(0)" ><a href="#profile" >Profile</a></li>
               <li tabIndex=1 ng-click="tabHandler(1)" ><a href="#jobs"    >Jobs</a></li>
               <li tabIndex=2 ng-click="tabHandler(2)" ><a href="#domains" >Domains</a></li>
@@ -60,13 +60,15 @@
               <div tabPanel=6 ng-show="isActTab(6)" id="locations">
                   <div class="cvLocationLink">
                       <div class="maplink">
-                          <a href="https://drive.google.com/open?id=1FkuGGgHPt2XS-D3BdE6dCJGqLoY&amp;usp=sharing" target="_blank">
+                          <a title="opens in a new tab" href="https://drive.google.com/open?id=1FkuGGgHPt2XS-D3BdE6dCJGqLoY&amp;usp=sharing" target="_blank">
                               Click to open with Google maps
-                                  <p>opens in a new tab</p>
                           </a>
                       </div>
                   </div>
-                  <cvLocationsDrctv class="cvLocationsDrctv"></cvLocationsDrctv>
+                  <cvLocationsDrctv 
+                    class="cvLocationsDrctv"
+                    title="click to filter jobs"
+                  ></cvLocationsDrctv>
               </div>  
               <div tabPanel=7 ng-show="isActTab(7)" id="contact">
                 <cvContactDrctv class="cvContactDrctv"></cvContactDrctv>
