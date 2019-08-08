@@ -49,7 +49,7 @@
       </div>      
 
       <div class="section">
-        <i id="pageLoc">This page is hosted on: $pageLoc</i>
+        <i id="pageLoc"></i>
       </div>
 
     </div>
@@ -57,5 +57,5 @@
 </html>
 <script>
 let pageLoc = location.origin;
-document.getElementById("pageLoc").innerHTML = pageLoc;
+document.getElementById("pageLoc").innerHTML = "This page is hosted on:" + pageLoc;
 </script>
