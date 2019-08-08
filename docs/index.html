@@ -48,6 +48,14 @@
         </div>
       </div>      
 
+      <div class="section">
+        <i id="pageLoc">This page is hosted on: $pageLoc</i>
+      </div>
+
     </div>
   </body>
 </html>
+<script>
+let pageLoc = location.origin;
+document.getElementById("pageLoc").innerHTML = pageLoc;
+</script>
