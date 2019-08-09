@@ -5,12 +5,16 @@ angular.module('cvngjs')
 
         function cvInit( $rootScope, $scope, $http){ 
             $scope 	= $rootScope;
+/*
             $scope.getJsonUrl = ()=>{
-                let jsonLocs = ["../Master/docs/data/cv.json","../../Master/docs/data/cv.json","../Master/docs/data/cv.json"]
+                let jsonLocs = [,"../../docs/data/cv.json","../../../docs/data/cv.json"]
                 for(i=0; i<3;i++){
                     try{
                         let conn = $http.get(jsonLocs[i]);
-                        if(conn,status==200){ $scope.jsonURL = jsonLocs[i]; }
+                        if(conn,status==200){ 
+                            $scope.jsonURL = jsonLocs[i]; 
+                            console.log("found json on:", $scope.jsonURL)
+                        }
                     }
                     catch(error){
                         console.log("json not found", error)
@@ -22,9 +26,9 @@ angular.module('cvngjs')
                 }
 
             }
+*/
 
-
-            $scope.httpPromise  = $http.get( $scope.jsonURL );
+            $scope.httpPromise  = $http.get( "../docs/data/cv.json");
             $scope.httpPromise.then(function(response){
                 $scope.cvContact    = response.data["contact"];
                 $scope.cvEducations = response.data["education"];
