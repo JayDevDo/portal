@@ -10,7 +10,7 @@
     <link rel="stylesheet" 
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     >
-    <script src="cv.js"></script>
+    <!-- script src="cv.js"></script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-animate.min.js"></script>
   </head>
@@ -22,20 +22,20 @@
         <div id="mainContent" ng-controller="cvInit">
           <div id="tabWrapper">
             <ul class="tabs">
-              <li tabIndex=0 ng-click="tabHandler(0)" ><a href="#profile" >Profile</a></li>
-              <li tabIndex=1 ng-click="tabHandler(1)" ><a href="#jobs"    >Jobs</a></li>
-              <li tabIndex=2 ng-click="tabHandler(2)" ><a href="#domains" >Domains</a></li>
-              <li tabIndex=3 ng-click=tabHandler(3)   ><a href="#languages">Languages</a></li>
-              <li tabIndex=4 ng-click=tabHandler(4)   ><a href="#education">Education</a></li>
-              <li tabIndex=5 ng-click=tabHandler(5)   ><a href="#tools"   >Tools & skills</a></li>
-              <li tabIndex=6 ng-click=tabHandler(6)   ><a href="#locations">Locations</a></li>
-              <li tabIndex=7 ng-click=tabHandler(7)   ><a href="#contact" >Contact</a></li>
+              <li tabIndex=0 ng-click=tabHandler(0) ><a href="#profile" >Profile</a></li>
+              <li tabIndex=1 ng-click=tabHandler(1) ><a href="#jobs"    >Jobs</a></li>
+              <li tabIndex=2 ng-click=tabHandler(2) ><a href="#domains" >Domains</a></li>
+              <li tabIndex=3 ng-click=tabHandler(3) ><a href="#languages">Languages</a></li>
+              <li tabIndex=4 ng-click=tabHandler(4) ><a href="#education">Education</a></li>
+              <li tabIndex=5 ng-click=tabHandler(5) ><a href="#tools"   >Tools & skills</a></li>
+              <li tabIndex=6 ng-click=tabHandler(6) ><a href="#locations">Locations</a></li>
+              <li tabIndex=7 ng-click=tabHandler(7) ><a href="#contact" >Contact</a></li>
             </ul>
           </div>
 
           <div id="contentWrapper">
               <div tabPanel=0 ng-show="isActTab(0)" id="profile">
-                {{ cvAll.profile[0] }}
+                {{ cvProfile[0] }}
               </div>
               <div tabPanel=1 ng-show="isActTab(1)" id="jobs">
                 <div id="srchResults" ng-show="fltrRes.active">

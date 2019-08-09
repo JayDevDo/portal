@@ -23,16 +23,14 @@ angular.module('cvngjs')
     function cvLingosDrctv($compile) {
         return {
                 restrict:   'EAC',
-                template:   `   <div>
-                                    <h3 ng-repeat="lingo in cvAll.languages">
-                                        {{ lingo }}
-                                    </h3>
-                                </div>                
+                template:   `   <div><h3 ng-repeat="lingo in cvLanguages">
+                                    {{ lingo }}
+                                </h3></div>                
                             `,
                 replace: true,
                 link: function(scope, element, attrs){
                     /* cvAll.languages */
-                    console.log( "cvLingo directive 'link' enter, using factory" ) 
+                    // console.log( "cvLingo directive 'link' enter, using factory" ) 
                 }
         }
     }
@@ -62,7 +60,7 @@ angular.module('cvngjs')
                                     <li>
                                         <span class="jdHeader">pdf:</span>
                                         <span class="jdItem">
-                                            <a  href="../CV-JayVanDoormalen.pdf" 
+                                            <a  href="../../docs/CV-JayVanDoormalen.pdf" 
                                                 target="_blank"
                                             >
                                                 click to download
@@ -74,7 +72,7 @@ angular.module('cvngjs')
                             </div>`,
                 replace: true,
                 link: function(scope, element, attrs){
-                    console.log( "cvContact directive 'link' enter" ) ;
+                    // console.log( "cvContact directive 'link' enter" ) ;
                     scope.pageLoc = pageLoc;
                 }
         }
@@ -99,31 +97,32 @@ angular.module('cvngjs')
                             `,
                 replace: true,
                 link: function(scope, element, attrs){
-                    console.log( "cvDomain directive 'link' enter" ) ;
                     scope.domains = [{ "domain": 'jobdom', "experience": 0 }];
-                    if( scope.cvAll.jobs ){  
-                        scope.domains = [];
-                        let jobdom = "";
-                        let domainExperience = 0;
+                    scope.httpPromise.then( 
+                        ()=>{
+                            if( scope.cvJobs && scope.cvDomains ){  
+                                scope.domains = [];
+                                let jobdom = "";
+                                let domainExperience = 0;
+                                for(let i=0; i<scope.cvDomains.length; i++){    
+                                    jobdom = scope.cvDomains[i];
+                                    if( jobdom === "Customer Service" ){ jobdom = "CS"}
+                                    // console.log("jobdom each:", jobdom )
+                                    domainExperience = 0;
 
-                        for(let i=0; i<scope.cvAll.jobDomains.length; i++){
-                            jobdom = scope.cvAll.jobDomains[i];
-                            // console.log("jobdom each:", jobdom )
-                            domainExperience = 0;
-
-                                for(let j=0; j < scope.cvAll.jobs.length; j++){
-                                    let jobexp = scope.cvAll.jobs[j].durationMonths;
-                                    if( scope.cvAll.jobs[j].jobDomain.includes(jobdom) ){
-                                        domainExperience += jobexp;
-                                    }
+                                        for(let j=0; j < scope.cvJobs.length; j++){
+                                            let jobexp = scope.cvJobs[j].durationMonths;
+                                            if( scope.cvJobs[j].jobDomain.includes(jobdom)){domainExperience += jobexp; }
+                                        }
+                                    let domainObj = { "domain": (jobdom==="CS")? "Customer Service":jobdom, "experience": ( domainExperience / 12).toFixed(0) }
+                                    scope.domains.push( domainObj );
                                 }
-                            let domainObj = { "domain": (jobdom==="CS")? "Customer Service":jobdom, "experience": ( domainExperience / 12).toFixed(0) }
-                            scope.domains.push( domainObj );
+                            }
                         }
-                    }
+                    )    
                 }
-        }
-}
+         }
+    }
 
 angular.module('cvngjs')
     .directive('cvEducationDrctv', cvEducationDrctv);
@@ -131,15 +130,13 @@ angular.module('cvngjs')
     function cvEducationDrctv($compile) {
         return {
                 restrict:   'EAC',
-                template:   `<div>
-                                <h3 ng-repeat="edu in cvAll.education">
-                                    {{ edu }}
-                                </h3>
-                            </div>    
+                template:   `<div><h3 ng-repeat="edu in cvEducations">
+                                {{ edu }}
+                            </h3></div>    
                             `,
                 replace: true,
                 link: function(scope, element, attrs){
-                    console.log( "cvEducation directive 'link' enter" ) ;
+                    // console.log( "cvEducation directive 'link' enter" ) ;
                 }
         }
     }
@@ -153,10 +150,10 @@ angular.module('cvngjs')
                 template:   `<ul>
                                 <li class="locationItem"
                                     title="click to filter jobs by location"
-                                    ng-click="fltrByCountry(key)"
-                                    ng-repeat="(key, value) in cvAll.jobLocations"
+                                    ng-repeat="(key, value) in cvLocations"
+                                    ng-click="fltrByCountry(key.toString())"
                                 >
-                                {{ key }}
+                                    <span>{{ key }}</span>
                                     <ul>
                                         <li ng-repeat="city in value" >
                                             <span>{{ city }}</span>
@@ -167,7 +164,7 @@ angular.module('cvngjs')
                             `,
                 replace: true,
                 link: function(scope, element, attrs){
-                    console.log( "cvLocation directive 'link' enter" ) ;
+                   // console.log( "cvLocation directive 'link' enter" ) ;
                 }
         }
     }
@@ -179,14 +176,14 @@ angular.module('cvngjs')
     function cvToolsDrctv($compile) {
         return {
                 restrict:   'EAC',
-                template:   `<div class="toolItem" ng-repeat="(key, value) in cvAll.toolsSkills"> 
+                template:   `<div class="toolItem" ng-repeat="(key, value) in cvTools"> 
                                 <h3 class="toolHeader">
                                     {{ key }}
                                 </h3>
                                 <div class="toolDetail">
                                     <ul>
                                         <li ng-repeat="skill in value" >
-                                            <span class="jdItem">{{ skill }}</span>
+                                            <span class="toolItem">{{ skill }}</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -194,7 +191,7 @@ angular.module('cvngjs')
                             `,
                 replace: true,
                 link: function(scope, element, attrs){
-                    console.log( "cvTools directive 'link' enter" ) ;
+                    // console.log( "cvTools directive 'link' enter" ) ;
                 }
         }
     }

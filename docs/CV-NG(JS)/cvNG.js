@@ -5,8 +5,20 @@ angular.module('cvngjs')
 
         function cvInit( $rootScope, $scope, $http){ 
         	$scope 	= $rootScope;
-            console.log("enter cvInit: arrays loaded from js:", (cv.jobs.length>0) );  
-            $scope.cvAll        =   cv;          
+            $scope.httpPromise  = $http.get("../../docs/data/cv.json");
+            $scope.httpPromise.then(function(response){
+                $scope.cvContact    = response.data["contact"];
+                $scope.cvEducations = response.data["education"];
+                $scope.cvJobs       = response.data["jobs"];
+                $scope.cvDomains    = response.data["jobDomains"];
+                $scope.cvLanguages  = response.data["languages"];
+                $scope.cvLocations  = response.data["jobLocations"];
+                $scope.cvProfile    = response.data["profile"];
+                $scope.cvTools      = response.data["toolsSkills"];
+                console.log("enter cvInit: arrays loaded from js:", ($scope.cvJobs.length>0) );  
+            });
+
+
             $scope.activeTab    =   0;
             $scope.isActTab     =   (tabNr)=>{ return (tabNr === $scope.activeTab);  }
             $scope.tabHandler   =   (tabNr)=>{  $scope.activeTab = tabNr 
@@ -46,8 +58,8 @@ angular.module('cvngjs')
                                         $scope.fltrRes.key.value     = domain;
                                         $scope.fltrRes.active        = true;
                                         $scope.fltrRes.found         = 0;
-                                        for(let i=0; i<$scope.cvAll.jobs.length ;i++){
-                                            let jDomain = $scope.cvAll.jobs[i].jobDomain;
+                                        for(let i=0; i<$scope.cvJobs.length ;i++){
+                                            let jDomain = $scope.cvJobs[i].jobDomain;
                                                 if( jDomain.includes(domain) ){ 
                                                     $scope.fltrArr[i] = true;
                                                     $scope.fltrRes.found++ ;
@@ -66,8 +78,8 @@ angular.module('cvngjs')
                 $scope.fltrRes.key.value     = loc ;
                 $scope.fltrRes.active        = true;
                 $scope.fltrRes.found         = 0;
-                for(let i=0; i<$scope.cvAll.jobs.length ;i++){
-                    let jLoc = $scope.cvAll.jobs[i].countryAndlocation;
+                for(let i=0; i<$scope.cvJobs.length ;i++){
+                    let jLoc = $scope.cvJobs[i].countryAndlocation;
                         if( jLoc.includes(loc) ){ 
                             $scope.fltrArr[i] = true;
                             $scope.fltrRes.found++ ;

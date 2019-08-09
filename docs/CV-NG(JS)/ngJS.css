@@ -6,7 +6,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.wrap {	margin: 0 auto; }
+.wrap {	margin: 0 auto 0 auto; }
 
 #contentWrapper{
     overflow-y: scroll;
@@ -45,7 +45,34 @@ p{
 #srchResults button{ margin-left: 10%;}
 div.jobDetail{ background-color: #F3E0BE;}
 div.toolDetail{ background-color: #F3E0BE;}
+
+h3.toolHeader{
+    padding: 0px;
+    margin: 5px 0 0 0;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+div.toolDetail ul{
+    list-style-type: none;
+    list-style: none;
+    padding: 0px;
+    margin: 5px 0 0 0;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+div.toolDetail {
+    margin-left: 20px;
+    background: transparent;
+    color: #F3E0BE;
+}
+/*
+
+*/
+
 .toolHeader{    background-color: #b8860b;}
+.toolItem{    color: #F3E0BE; background: transparent; }
 
 .activeJob{
     background-color: darkgoldenrod;
@@ -65,6 +92,7 @@ div.toolDetail{ background-color: #F3E0BE;}
 .jobDetail ul{    list-style: none;}
 .jdHeader{    color: #5A3E36;}
 .jdItem{    color: #006E6D; background: transparent; }
+
 
 #jobs > div > h3:hover{
     background-color: darkgoldenrod;
