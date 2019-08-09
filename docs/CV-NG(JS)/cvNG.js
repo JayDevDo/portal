@@ -28,7 +28,7 @@ angular.module('cvngjs')
             }
 */
 
-            $scope.httpPromise  = $http.get( "../docs/data/cv.json");
+            $scope.httpPromise  = $http.get( "../../docs/data/cv.json");
             $scope.httpPromise.then(function(response){
                 $scope.cvContact    = response.data["contact"];
                 $scope.cvEducations = response.data["education"];
