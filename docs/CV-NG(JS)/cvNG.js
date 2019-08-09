@@ -12,8 +12,9 @@ angular.module('cvngjs')
                         let conn = $http.get(jsonLocs[i]);
                         if(conn,status==200){ $scope.jsonURL = jsonLocs[i]; }
                     }
-                    catch{
-                        console.log("json not found")
+                    catch(error){
+                        console.log("json not found", error)
+                        error = null;
                     }
                     finally{
 
