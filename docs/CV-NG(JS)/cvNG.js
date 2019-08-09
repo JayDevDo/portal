@@ -1,17 +1,18 @@
 
 angular.module('cvngjs')
     .controller('cvInit', cvInit );
-    cvInit.$inject = [ '$rootScope', '$scope', '$http', 'cvService', 'cvFactory' ];
+    cvInit.$inject = [ '$rootScope', '$scope', '$http' ];
 
-        function cvInit( $rootScope, $scope, $http, cvService, cvFactory){ 
+        function cvInit( $rootScope, $scope, $http){ 
         	$scope 	= $rootScope;
-            console.log("enter cvInit: arrays loaded from js:", (cv.jobs.length>0) );
-            
+            console.log("enter cvInit: arrays loaded from js:", (cv.jobs.length>0) );  
+            $scope.cvAll        =   cv;          
             $scope.activeTab    =   0;
             $scope.isActTab     =   (tabNr)=>{ return (tabNr === $scope.activeTab);  }
             $scope.tabHandler   =   (tabNr)=>{  $scope.activeTab = tabNr 
                                                 // console.log("active tab = ", tabNr );    
             }
+
             $scope.activeJob    =   -1;
             $scope.isActJob     =   (jobNr)=>{ return (jobNr === $scope.activeJob);  }
             $scope.jobHandler   =   (jobNr)=>{  // if job is expanded, collapse
@@ -19,6 +20,7 @@ angular.module('cvngjs')
                                                 $scope.activeJob = jobNr ;
                                                 // console.log("active job = ", jobNr );    
             }
+
             $scope.jobFilter    = (jobId)=>{ return $scope.fltrArr[jobId] } 
             $scope.fltrArr      =  [ true, true, true, true, true, true, true, true, true, true, true, true, true ];
             $scope.fltrRes      =   {
@@ -26,6 +28,7 @@ angular.module('cvngjs')
                                         "key":      {"srchKey": 'none', "value": ''},
                                         "found":    0                
             }
+
             $scope.clearFilter = ()=>{ 
                                         $scope.fltrRes = {
                                                             "active": false,
@@ -34,6 +37,7 @@ angular.module('cvngjs')
                                         }
                                         $scope.fltrArr = [ true, true, true, true, true, true, true, true, true, true, true, true, true ];
             }
+
             $scope.fltrByDomain =   (domain)=>{
                                         console.log("fn fltrByDomain called", domain);
                                         $scope.clearFilter();
@@ -54,6 +58,7 @@ angular.module('cvngjs')
                                         console.log("$scope.fltrArr:", $scope.fltrArr, lr, "$scope.fltrRes:", $scope.fltrRes );
                                         $scope.tabHandler(1);    
             }
+
             $scope.fltrByCountry =   (loc)=>{
                 console.log("fn fltrByCountry called", loc );
                 $scope.clearFilter();
@@ -73,4 +78,5 @@ angular.module('cvngjs')
                 console.log("$scope.fltrArr:", $scope.fltrArr, lr, "$scope.fltrRes:", $scope.fltrRes );
                 $scope.tabHandler(1);
             }
+
         }

@@ -23,8 +23,7 @@ angular.module('cvngjs')
     function cvLingosDrctv($compile) {
         return {
                 restrict:   'EAC',
-                template:   `
-                                <div>
+                template:   `   <div>
                                     <h3 ng-repeat="lingo in cvAll.languages">
                                         {{ lingo }}
                                     </h3>
@@ -32,7 +31,8 @@ angular.module('cvngjs')
                             `,
                 replace: true,
                 link: function(scope, element, attrs){
-                    console.log( "cvLingo directive 'link' enter" ) ;
+                    /* cvAll.languages */
+                    console.log( "cvLingo directive 'link' enter, using factory" ) 
                 }
         }
     }

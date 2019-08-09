@@ -66,6 +66,11 @@ div.toolDetail{ background-color: #F3E0BE;}
 .jdHeader{    color: #5A3E36;}
 .jdItem{    color: #006E6D; background: transparent; }
 
+#jobs > div > h3:hover{
+    background-color: darkgoldenrod;
+    color: #ffffff;
+}
+
 .inlineli{
     display: inline-flex;
     flex-flow: row;
@@ -122,12 +127,12 @@ ul.tabs li a {
 
 
 ul.tabs li a:hover {
-	margin: 5px 0 0 0;
-	padding: 10px 0 5px 0;
+	margin:  00px 0 20px 0;
+	padding: 10px 0 10px 0;
 }
 
 ul.tabs li a.active {
-	margin: 10px 0 0 0;
+	margin:  00px 0 20px 0;
 	padding: 10px 0 10px 0;
 	background-color: #545f60;
 	color: #ff9933;
