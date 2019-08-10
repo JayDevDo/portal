@@ -39,56 +39,56 @@
 </body>
 
 <script type="text/javascript">
-  let lr = '\n';
-  let pageLoc = location.href;
-  let jsProfile;
-  let jsDomains;
-  let jsJobs;
-  let jsLocations;
-  let jsLanguages;
-  let jsTools;
-  let jsEducation;
-  let jsContact;
-  let jdescr = ["Title","Company","Start",
-                "End","Desciption","Location",
-                "Languages","Tools","Duration",
-                "Domain"];
-   let items = [];
-	
-$.getJSON(	"../data/cv.json", 
-	  	function( data ) {
-  			items = data;
-  			console.log("json data:", items);
-  		}
-).done( 
-      ( items )=>{
-      // Document is ready.
-      // Value of test.json is passed as `data`.
-      jsProfile = items.profile;
-      jsDomains = items.jobDomains;
-      jsJobs = items.jobs;
-      jsLocations = items.jobLocations;
-      jsLanguages = items.languages;
-      jsTools = items.toolsSkills;
-      jsEducation = items.education;
-      jsContact = items.contact;
-      let accHdrs = [];
-      let accCntnt = [];
-      let accCntntObj = [];
-      let cntr = 0;
-      // console.log(data.valueOf() )
-      function experienceCounter(){
-        let expArray = [0,0,0,0,0];
-        $.each(jsJobs, 
-          ( key, val )=>{
-            let jobdur = val.durationMonths;
-            $.each(val.jobDomain,(key,val)=>{expArray[jsDomains.indexOf(val)]=expArray[jsDomains.indexOf(val)]+jobdur;});
-          });
-        return expArray;
-      }
+	let lr = '\n';
+	let pageLoc = location.href;
+	let jsProfile;
+	let jsDomains;
+	let jsJobs;
+	let jsLocations;
+	let jsLanguages;
+	let jsTools;
+	let jsEducation;
+	let jsContact;
+	let jdescr = [	"Title","Company","Start",
+        	        "End","Desciption","Location",
+                	"Languages","Tools","Duration",
+	                "Domain"];
+   	let items = [];
+	let jqxhr = 	$.getJSON( 
+				"../data/cv.json", 
+				(data)=>{ console.log( "success, data:", data );}
+			);
+
+  jqxhr.complete(
+	( items )=>{
+      	// Document is ready.
+      	// Value of test.json is passed as `data`.
+	jsProfile = items.profile;
+	jsDomains = items.jobDomains;
+	jsJobs = items.jobs;
+	jsLocations = items.jobLocations;
+	jsLanguages = items.languages;
+	jsTools = items.toolsSkills;
+	jsEducation = items.education;
+	jsContact = items.contact;
+	let accHdrs = [];
+	let accCntnt = [];
+	let accCntntObj = [];
+	let cntr = 0;
+	// console.log(data.valueOf() )
+	function experienceCounter(){
+		let expArray = [0,0,0,0,0];
+		$.each(	jsJobs, 
+			( key, val )=>{
+				let jobdur = val.durationMonths;
+				$.each(val.jobDomain,(key,val)=>{expArray[jsDomains.indexOf(val)]=expArray[jsDomains.indexOf(val)]+jobdur;});
+			}
+		);
+	return expArray;
+	}
 
       /* Profile tab, simple array */
-      $.each( jsProfile,(key,val)=> {$( "<p>", { "class": "cvProfile", html: val }).appendTo( "#profile" );});
+      $.each( jsProfile,(key,val)=>{ $( "<p>", { "class": "cvProfile", html: val }).appendTo( "#profile" );});
 
       /* Job domains simple array  */
       let accContentDomains = ["<ul>"];
