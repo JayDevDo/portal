@@ -15,8 +15,6 @@
         margin: 0 auto;
         background: -webkit-radial-gradient(50% 16% circle, #c36fd4 32%, #332bab 88%);
         background: radial-gradient(circle at 50% 16%, #c36fd4 32%, #332bab 88%);
-
-    /*    background: #2A293E; */
         -webkit-box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
         -moz-box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
         box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
