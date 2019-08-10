@@ -298,6 +298,8 @@
     }
 
     ul.tabs li {
+        display: flex;
+        flex-flow: row;
         width: 12.5%;
     }
 
