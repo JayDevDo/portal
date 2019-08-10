@@ -54,13 +54,9 @@
                 	"Languages","Tools","Duration",
 	                "Domain"];
    	let items = [];
-	let jqxhr = 	$.getJSON( 
-				"../data/cv.json", 
-				(data)=>{ items = data; console.log( "success, data:", data );}
-			);
 
 $.getJSON( "../data/cv.json", function( json ) {
-  	console.log( "JSON Data: " , json );
+  	console.log( "JSON Data: " , json.toString() );
 	items = json;
 	jsProfile = items.profile;
 	jsDomains = items.jobDomains;
