@@ -68,14 +68,14 @@ $.getJSON(	"../data/cv.json",
       ( items )=>{
       // Document is ready.
       // Value of test.json is passed as `data`.
-      jsProfile = data.profile;
-      jsDomains = data.jobDomains;
-      jsJobs = data.jobs;
-      jsLocations = data.jobLocations;
-      jsLanguages = data.languages;
-      jsTools = data.toolsSkills;
-      jsEducation = data.education;
-      jsContact = data.contact;
+      jsProfile = items.profile;
+      jsDomains = items.jobDomains;
+      jsJobs = items.jobs;
+      jsLocations = items.jobLocations;
+      jsLanguages = items.languages;
+      jsTools = items.toolsSkills;
+      jsEducation = items.education;
+      jsContact = items.contact;
       let accHdrs = [];
       let accCntnt = [];
       let accCntntObj = [];
@@ -238,13 +238,6 @@ function jobFilter(fltrSrc, fltrVal){
         $.each( job,
                 ( key, val )=>{
                   if( keycounter===fltrSrc ){
-                    console.log(
-                      "jobcounter",jobcounter,
-                      "keycounter",keycounter,
-                      "job-key", key,
-                      "job-val",val,
-                      "check2",  val.includes(fltrVal)
-                    );
                     if( !val.includes(fltrVal) ){
                       $(".jobhdr").eq(jobcounter).addClass("hidden");
                       $(".jobwrapper").eq(jobcounter).addClass("hidden");
