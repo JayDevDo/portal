@@ -58,6 +58,13 @@
                 "Languages","Tools","Duration",
                 "Domain"];
    let data = cv;
+	
+$.getJSON(	"../data/cv.json", 
+	  	function( data ) {
+  			var items = data;
+  			console.log("json data:", items);
+  		}
+);
 
   $.when( data ,
     $.ready)
