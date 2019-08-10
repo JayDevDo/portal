@@ -56,11 +56,11 @@
    	let items = [];
 	let jqxhr = 	$.getJSON( 
 				"../data/cv.json", 
-				(data)=>{ console.log( "success, data:", data );}
+				(data)=>{ items = data; console.log( "success, data:", data );}
 			);
 
   jqxhr.done(
-	( items )=>{
+	()=>{
       	// Document is ready.
       	// Value of test.json is passed as `data`.
 	jsProfile = items.profile;
