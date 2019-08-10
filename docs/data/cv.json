@@ -1,5 +1,5 @@
 {
-	jobs: [  
+	"jobs": [  
 		{
 			"jobTitle" 	:			"Client Service Consultant – HR Solutions",
 			"company" 	:			"ADP Bucharest",
@@ -158,7 +158,7 @@
 		}
 	],
 
-	jobDomains: [
+	"jobDomains": [
 		"CS",
 		"IT",
 		"Tourism",
@@ -166,7 +166,7 @@
 		"Collections"
 	],
 
-	jobLocations: {
+	"jobLocations": {
 		"NL" : ["Tilburg"],
 		"FR" : ["Saumur (49)", "Vias (34)", "Lyon (69)", "Saint-Sorlin-d'Arves (73)", "Oyonnax (01)", "Cap d'Agde (34)" ,"Bressolles (01)", "Gap (05)"],
 		"CZ" : ["Prague", "Brno"],
@@ -175,7 +175,7 @@
 		"RO" : ["Bucharest"]
 	},
 
-	languages: [
+	"languages": [
 		"Dutch (native)", 
 		"English (C1-native)", 
 		"French (C1)", 
@@ -187,7 +187,7 @@
 		"Italian (A1)"
 	],
 
-	toolsSkills: 
+	"toolsSkills": 
 		{ 
 			"windows" : [	"MS Office (expert)",
 							"MS Outlook (expert)",
@@ -232,7 +232,7 @@
 								]
 		},
 
-	education: [
+	"education": [
 					"1985-1990 - Gymnasium: Dutch, English, French, German, History, National- and business economics",
 					"1990-1991 - First year of the Dutch University of Tourism in Breda",
 					"1992-1993 - Assistant logistics manager", 
@@ -240,8 +240,8 @@
 					"1999 - ITIL Foundations"
 				],
 
-	profile: ["I'm a result orientated, dependable team player. Having over 15 years of experience in several fields of customer service using all of my language skills (English, Dutch, French and German). I can analyse fast, work meticulously and inform the customer of the solution. Constantly looking for improvement, I use my IT background and advanced MS Office expertise to save time and manage multitasking."],
-	contact: {
+	"profile": ["I'm a result orientated, dependable team player. Having over 15 years of experience in several fields of customer service using all of my language skills (English, Dutch, French and German). I can analyse fast, work meticulously and inform the customer of the solution. Constantly looking for improvement, I use my IT background and advanced MS Office expertise to save time and manage multitasking."],
+	"contact": {
 					"email": "spamjaydo@gmail.com",
 					"phone": "by request" 
 				}
