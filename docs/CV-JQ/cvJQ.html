@@ -6,9 +6,8 @@
   	<link   rel="stylesheet" href="jqui/jquery-ui.css">
   	<link   rel="stylesheet" type="text/css" href="cvJQ.css">
   	<script src="jQuery3.4.1.js" charset="utf-8"></script>
-  	<script src="jqui/jquery-ui.js"></script>
-	  <script src="cv.js"></script>
-	  <script src="../data/cv.json"></script>
+  	<script src="jqui/jquery-ui.js" charset="utf-8"></script>
+	<script src="../data/cv.json"></script>
 	
 </head>
 <!-- CV/Jquery/cvJQ.html -->
@@ -40,9 +39,6 @@
 </body>
 
 <script type="text/javascript">
-  function startSpinner(){ $(".sk-circle").show();  }
-  function stopSpinner(){ $(".sk-circle").hide(); }
-
   let lr = '\n';
   let pageLoc = location.href;
   let jsProfile;
@@ -57,7 +53,6 @@
                 "End","Desciption","Location",
                 "Languages","Tools","Duration",
                 "Domain"];
-   let data = cv;
    let items = [];
 	
 $.getJSON(	"../data/cv.json", 
@@ -188,10 +183,10 @@ $.getJSON(	"../data/cv.json",
       $( "<div>", { "class": "cvTools", html: accContentTools.join("") } ).appendTo( "#tools" );
 
       /* Contact */
-      let pdfNm = "CV-JayVanDoormalen.pdf"
+      let pdfNm = "../data/CV-JayVanDoormalen.pdf"
       let accContentContact = ["<ul>"];
       $.each(jsContact, (key,val)=>{accContentContact.push("<li>"+key+": "+val+"</li>");});
-      accContentContact.push( "<li>pdf: <a href='CV-JayVanDoormalen.pdf' target='_blank'> click to download</a></li>" ); 
+      accContentContact.push( "<li>pdf: <a href='../data/CV-JayVanDoormalen.pdf' target='_blank'> click to download</a></li>" ); 
       accContentContact.push("</ul>");
       accContentContact.push( "<i>This page is hosted on '" + pageLoc + "'</i>");
       $( "<div>",{"class": "cvContact", html: accContentContact.join("") }).appendTo("#contact");
