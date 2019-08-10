@@ -1,7 +1,0 @@
-{
-    "github.customPullRequestDescription": "singleLine",
-    "github.remoteName": " https://github.com/JayDevDo/CV/CVNGJS.git",
-    "git.autofetch": true,
-    "git.alwaysShowStagedChangesResourceGroup": true,
-    "github.upstream": " https://github.com/JayDevDo/CV/CVNGJS.git"
-}
