@@ -59,10 +59,9 @@
 				(data)=>{ items = data; console.log( "success, data:", data );}
 			);
 
-  jqxhr.done(
-	()=>{
-      	// Document is ready.
-      	// Value of test.json is passed as `data`.
+$.getJSON( "../data/cv.json", function( json ) {
+  	console.log( "JSON Data: " , json );
+	items = json;
 	jsProfile = items.profile;
 	jsDomains = items.jobDomains;
 	jsJobs = items.jobs;
