@@ -1,7 +1,7 @@
 {
     "github.customPullRequestDescription": "singleLine",
-    "github.remoteName": " https://github.com/JayDevDo/CV/CV-NG(8).git",
+    "github.remoteName": " https://github.com/JayDevDo/CV/CVNGJS.git",
     "git.autofetch": true,
     "git.alwaysShowStagedChangesResourceGroup": true,
-    "github.upstream": " https://github.com/JayDevDo/CV/CV-NG(8).git"
+    "github.upstream": " https://github.com/JayDevDo/CV/CVNGJS.git"
 }
