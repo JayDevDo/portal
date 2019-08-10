@@ -58,18 +58,19 @@
                 "Languages","Tools","Duration",
                 "Domain"];
    let data = cv;
+   let items = [];
 	
 $.getJSON(	"../data/cv.json", 
 	  	function( data ) {
-  			var items = data;
+  			items = data;
   			console.log("json data:", items);
   		}
 );
 
-  $.when( data ,
+  $.when( items ,
     $.ready)
       .done( 
-      ( data )=>{
+      ( items )=>{
       // Document is ready.
       // Value of test.json is passed as `data`.
       jsProfile = data.profile;
