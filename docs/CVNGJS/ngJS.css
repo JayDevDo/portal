@@ -1,5 +1,5 @@
 
-@media (max-width: 799px) {
+@media (max-width: 999px) {
 * {box-sizing: border-box}
     
     body{
@@ -39,17 +39,13 @@
             text-align: left;
         }
 
-        #tabWrapper > ul > li{
-            display: inline-block;
-        }
-
         #contentWrapper{
             float: right;
             padding: 0px 12px;
             border: 1px solid #ccc;
             width: 80%;
             border-left: none;
-            height: 100%;
+            height: auto;
             overflow-y: scroll;
             background: -webkit-radial-gradient(50% 16% circle, #c36fd4 32%, #332bab 88%);
             background: radial-gradient(circle at 50% 16%, #c36fd4 32%, #332bab 88%);
@@ -154,7 +150,6 @@
         }
         
         ul.tabs {
-            height: 80px;
             margin: 0 auto;
             list-style: none;
             overflow: hidden;
@@ -169,7 +164,7 @@
             background-color: inherit;
             color: black;
             padding: 10px 5px;
-            width: 100%;
+            width: 12%;
             border: none;
             outline: none;
             text-align: left;            
@@ -178,10 +173,9 @@
         ul.tabs li a {
             position: relative;
             display: block;
-            height: 30px;
             margin-top: 10px;
             padding: 5px 2 5 5;
-            font-size: 2rem;
+            font-size: 1.2rem;
             text-align: center;	
             text-decoration: none;
             color: #ffffff;
@@ -213,7 +207,7 @@
         }
         }
 
-@media (min-width: 799px) {
+@media (min-width: 999px) {
     body{
     /*    background-color: #2A293E; */
         background: -webkit-radial-gradient(50% 16% circle, #c36fd4 32%, #332bab 88%);
