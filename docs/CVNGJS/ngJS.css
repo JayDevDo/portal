@@ -31,14 +31,12 @@
         list-style: none;
     }
 
-    ul{
+    li{
         list-style-type: none;
         list-style: none;
-    }
-
-    li{
-        display: inline-block;
+        display: flexbox;
         text-align: left;
+
     }
 
     #contentWrapper{
