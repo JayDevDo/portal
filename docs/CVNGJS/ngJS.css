@@ -9,7 +9,25 @@
         }
         
         .wrap {	margin: 0 auto 0 auto; }
+
+        #mainContent{
+            display: flex;
+            flex-flow: row;
+        }
         
+        #tabWrapper{
+            display: flex;
+            flex-flow: column;
+        }
+
+        #tabWrapper ul{
+            display: inline;
+        }
+
+        #tabWrapper > ul > li{
+            display: inline-block;
+        }
+
         #contentWrapper{
             overflow-y: scroll;
             margin: 0 auto;
