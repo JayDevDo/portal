@@ -1,43 +1,47 @@
 
 @media (max-width: 999px) {
-* {box-sizing: border-box}
+    * {box-sizing: border-box}
 
-#mainContent {
-    width: 100%;
-    height: 100%;
-    
-    border: 1px solid #c3c3c3;
-    
-    display: flex;
-    display: -webkit-flex; /* Safari */
-    
-    flex-direction: row;
-    -webkit-flex-direction: row; /* Safari 6.1+ */
-    
-    flex-wrap: wrap;
-    -webkit-flex-wrap: wrap; /* Safari 6.1+ */
-}
+    #mainContent {
+        width: 100%;
+        height: 100%;
+        
+        border: 1px solid #c3c3c3;
+        
+        display: flex;
+        display: -webkit-flex; /* Safari */
+        
+        flex-direction: row;
+        -webkit-flex-direction: row; /* Safari 6.1+ */
+        
+        flex-wrap: wrap;
+        -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+    }
   
+    #tabWrapper{
+        -webkit-flex-basis: 15%; /* Safari 6.1+ */
+        flex-basis: 15%;        
+        width: 15%;
+        height: 100%;
+    }
 
-#tabWrapper{
-    -webkit-flex-basis: 15%; /* Safari 6.1+ */
-    flex-basis: 15%;        
-    width: 15%;
-    height: 100%;
-}
+    #tabWrapper > ul{
+        float: top;
+        list-style-type: none;
+        list-style: none;
+    }
 
-#tabWrapper > ul{
-    float: top;
-    list-style-type: none;
-    list-style: none;
-}
+    ul{
+        list-style-type: none;
+        list-style: none;
+    }
 
-#contentWrapper{
-    width: 80%;
-    height: 100%;
-    -webkit-flex-basis: 80%; /* Safari 6.1+ */
-    flex-basis: 80%;        
-}
+    #contentWrapper{
+        width: 80%;
+        height: 100%;
+        -webkit-flex-basis: 80%; /* Safari 6.1+ */
+        flex-basis: 80%;        
+    }
 
 }
 
