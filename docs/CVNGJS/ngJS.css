@@ -36,6 +36,10 @@
         list-style: none;
     }
 
+    li{
+        display: block;
+    }
+
     #contentWrapper{
         width: 80%;
         height: 100%;
