@@ -1,5 +1,7 @@
 
 @media (max-width: 799px) {
+* {box-sizing: border-box}
+    
     body{
         /*    background-color: #2A293E; */
             background: -webkit-radial-gradient(50% 16% circle, #c36fd4 32%, #332bab 88%);
@@ -11,17 +13,30 @@
         .wrap {	margin: 0 auto 0 auto; }
 
         #mainContent{
-            display: flex;
-            flex-flow: row;
+            float: left;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            width: 100%;
+            height: 100%;
         }
         
         #tabWrapper{
-            display: flex;
-            flex-flow: column;
+            float: left;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            width: 15%;
+            height: 100%;
         }
 
         #tabWrapper ul{
-            display: inline;
+            display: block;
+            background-color: inherit;
+            color: black;
+            padding: 5px 10px;
+            width: 100%;
+            border: none;
+            outline: none;
+            text-align: left;
         }
 
         #tabWrapper > ul > li{
@@ -29,13 +44,15 @@
         }
 
         #contentWrapper{
+            float: right;
+            padding: 0px 12px;
+            border: 1px solid #ccc;
+            width: 80%;
+            border-left: none;
+            height: 100%;
             overflow-y: scroll;
-            margin: 0 auto;
-            width: 66%;
             background: -webkit-radial-gradient(50% 16% circle, #c36fd4 32%, #332bab 88%);
             background: radial-gradient(circle at 50% 16%, #c36fd4 32%, #332bab 88%);
-          
-        /*    background: #2A293E; */
             -webkit-box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
             -moz-box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
             box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
@@ -148,7 +165,14 @@
         
         ul.tabs li {
             float: left;
-            width: 12.5%;
+            display: block;
+            background-color: inherit;
+            color: black;
+            padding: 10px 5px;
+            width: 100%;
+            border: none;
+            outline: none;
+            text-align: left;            
         }
         
         ul.tabs li a {
@@ -156,8 +180,8 @@
             display: block;
             height: 30px;
             margin-top: 10px;
-            padding: 5px 0 5 5;
-            font-size: 28px;
+            padding: 5px 2 5 5;
+            font-size: 2rem;
             text-align: center;	
             text-decoration: none;
             color: #ffffff;
