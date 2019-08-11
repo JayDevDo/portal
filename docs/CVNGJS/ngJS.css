@@ -25,13 +25,13 @@
         height: 100%;
     }
 
-    #tabWrapper > ul{
-        float: top;
+    #tabWrapper > ul{ 
         list-style-type: none;
         list-style: none;
     }
 
     li{
+        float: top;
         list-style-type: none;
         list-style: none;
         display: flexbox;
