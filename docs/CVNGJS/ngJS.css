@@ -39,7 +39,7 @@
 
     }
 
- .tabs > ul > li > span{    
+    ul.tabs > li > span{    
     position: relative;
     display: block;
     height: 30px;
