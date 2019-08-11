@@ -1,5 +1,5 @@
 
-@media (max-width: 899px) {
+@media (max-width: 799px) {
     body{
         /*    background-color: #2A293E; */
             background: -webkit-radial-gradient(50% 16% circle, #c36fd4 32%, #332bab 88%);
@@ -171,7 +171,7 @@
         }
         }
 
-@media (min-width: 699px) {
+@media (min-width: 799px) {
     body{
     /*    background-color: #2A293E; */
         background: -webkit-radial-gradient(50% 16% circle, #c36fd4 32%, #332bab 88%);
