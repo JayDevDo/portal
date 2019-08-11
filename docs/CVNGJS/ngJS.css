@@ -2,6 +2,177 @@
 @media (max-width: 899px) {
     body{
         /*    background-color: #2A293E; */
+            background: -webkit-radial-gradient(50% 16% circle, #c36fd4 32%, #332bab 88%);
+            background: radial-gradient(circle at 50% 16%, #c36fd4 32%, #332bab 88%);
+            color: #D8D8D8;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .wrap {	margin: 0 auto 0 auto; }
+        
+        #contentWrapper{
+            overflow-y: scroll;
+            margin: 0 auto;
+            background: -webkit-radial-gradient(50% 16% circle, #c36fd4 32%, #332bab 88%);
+            background: radial-gradient(circle at 50% 16%, #c36fd4 32%, #332bab 88%);
+          
+        /*    background: #2A293E; */
+            -webkit-box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
+            -moz-box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
+            box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
+            -webkit-border-bottom-right-radius: 8px;
+            -webkit-border-bottom-left-radius: 8px;
+            -moz-border-radius-bottomright: 8px;
+            -moz-border-radius-bottomleft: 8px;
+            border-bottom-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+        
+        p{
+            font-family: 'Open Sans', sans-serif;
+            padding: 5px 8px;
+            color: #ffffff;
+            line-height: 22px;
+            font-size: 18px;
+            margin: 0;
+        }
+        
+        .maplink a{ color: #ffff99;}
+        
+        #srchResults {
+            background-color: #ff9933;
+            color: #660066;
+        }
+        
+        #srchResults button{ margin-left: 10%;}
+        div.jobDetail{ background-color: #F3E0BE;}
+        div.toolDetail{ background-color: #F3E0BE;}
+        
+        h3.toolHeader{
+            padding: 0px;
+            margin: 5px 0 0 0;
+            margin-block-start: 0px;
+            margin-block-end: 0px;
+        }
+        
+        div.toolDetail ul{
+            list-style-type: none;
+            list-style: none;
+            padding: 0px;
+            margin: 5px 0 0 0;
+            margin-block-start: 0px;
+            margin-block-end: 0px;
+        }
+        
+        div.toolDetail {
+            margin-left: 20px;
+            background: transparent;
+            color: #F3E0BE;
+        }
+        /*
+        */
+        
+        .toolHeader{    background-color: #b8860b;}
+        .toolItem{    color: #F3E0BE; background: transparent; }
+        
+        .activeJob{
+            background-color: darkgoldenrod;
+            color: #ffffff;
+        }
+        
+        .locationItem{
+            list-style-type: none;
+            list-style: none;
+        }
+        
+        .locationItem ul li{
+            list-style-type: none;
+            list-style: none;
+        }
+        
+        .jobDetail ul{    list-style: none;}
+        .jdHeader{    color: #5A3E36;}
+        .jdItem{    color: #006E6D; background: transparent; }
+        
+        
+        #jobs > div > h3:hover{
+            background-color: darkgoldenrod;
+            color: #ffffff;
+        }
+        
+        .inlineli{
+            display: inline-flex;
+            flex-flow: row;
+        }
+        
+        .inlineli span{    margin-right: 10px;}
+        
+        #profile {
+            padding: 30px 30 10 10;
+            margin: auto;
+            color: #ffffff;
+            font-size: 30px;
+            text-align: center;	
+            text-decoration: none;
+            width: 60%;
+        }
+        
+        ul.tabs {
+            height: 80px;
+            margin: 0 auto;
+            list-style: none;
+            overflow: hidden;
+            padding: 0;
+            margin-bottom: 2px;
+            font-weight: bold;  
+        }
+        
+        ul.tabs li {
+            float: left;
+            width: 12.5%;
+        }
+        
+        ul.tabs li a {
+            position: relative;
+            display: block;
+            height: 30px;
+            margin-top: 10px;
+            padding: 5px 0 5 5;
+            font-size: 28px;
+            text-align: center;	
+            text-decoration: none;
+            color: #ffffff;
+            background-color: transparent;
+            -webkit-box-shadow: 8px 12px 10px 2px rgba(0,0,0,0.4);
+            -moz-box-shadow: 8px 12px 10px 2px rgba(0,0,0,0.4);
+            box-shadow: 8px 12px 10px 2px rgba(0,0,0,0.4);
+            border: 0px solid #000000;
+            -webkit-transition: padding 0.2s ease, margin 0.2s ease;
+            -moz-transition: padding 0.2s ease, margin 0.2s ease;
+            -o-transition: padding 0.2s ease, margin 0.2s ease;
+            -ms-transition: padding 0.2s ease, margin 0.2s ease;
+            transition: padding 0.2s ease, margin 0.2s ease;
+        }
+        
+        
+        ul.tabs li a:hover {
+            margin:  00px 0 20px 0;
+            padding: 10px 0 10px 0;
+        }
+        
+        ul.tabs li a.active {
+            margin:  00px 0 20px 0;
+            padding: 10px 0 10px 0;
+            background-color: #545f60;
+            color: #ff9933;
+            z-index: 4;
+            outline: none;
+        }
+        }
+
+@media (min-width: 699px) {
+    body{
+    /*    background-color: #2A293E; */
         background: -webkit-radial-gradient(50% 16% circle, #c36fd4 32%, #332bab 88%);
         background: radial-gradient(circle at 50% 16%, #c36fd4 32%, #332bab 88%);
         color: #D8D8D8;
@@ -15,6 +186,8 @@
         margin: 0 auto;
         background: -webkit-radial-gradient(50% 16% circle, #c36fd4 32%, #332bab 88%);
         background: radial-gradient(circle at 50% 16%, #c36fd4 32%, #332bab 88%);
+        
+    /*    background: #2A293E; */
         -webkit-box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
         -moz-box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
         box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
@@ -68,7 +241,6 @@
         color: #F3E0BE;
     }
     /*
-
     */
 
     .toolHeader{    background-color: #b8860b;}
@@ -122,13 +294,12 @@
         list-style: none;
         overflow: hidden;
         padding: 0;
-        display: inline-flexbox;
         margin-bottom: 2px;
         font-weight: bold;  
     }
 
     ul.tabs li {
-        left: 1px;
+        float: left;
         width: 12.5%;
     }
 
@@ -167,176 +338,6 @@
         color: #ff9933;
         z-index: 4;
         outline: none;
-    }
-}
+    }        
 
-@media (min-width: 699px) {
-    body{
-        /*    background-color: #2A293E; */
-        background: -webkit-radial-gradient(50% 16% circle, #c36fd4 32%, #332bab 88%);
-        background: radial-gradient(circle at 50% 16%, #c36fd4 32%, #332bab 88%);
-        color: #D8D8D8;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .wrap {	margin: 0 auto 0 auto; }
-
-    #contentWrapper{
-        overflow-y: scroll;
-        margin: 0 auto;
-        background: -webkit-radial-gradient(50% 16% circle, #c36fd4 32%, #332bab 88%);
-        background: radial-gradient(circle at 50% 16%, #c36fd4 32%, #332bab 88%);
-        -webkit-box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
-        -moz-box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
-        box-shadow: 2px 8px 10px -2px rgba(0,0,0,0.3);
-        -webkit-border-bottom-right-radius: 8px;
-        -webkit-border-bottom-left-radius: 8px;
-        -moz-border-radius-bottomright: 8px;
-        -moz-border-radius-bottomleft: 8px;
-        border-bottom-right-radius: 8px;
-        border-bottom-left-radius: 8px;
-    }
-
-    p{
-        font-family: 'Open Sans', sans-serif;
-        padding: 5px 8px;
-        color: #ffffff;
-        line-height: 22px;
-        font-size: 18px;
-        margin: 0;
-    }
-
-    .maplink a{ color: #ffff99;}
-
-    #srchResults {
-        background-color: #ff9933;
-        color: #660066;
-    }
-
-    #srchResults button{ margin-left: 10%;}
-    div.jobDetail{ background-color: #F3E0BE;}
-    div.toolDetail{ background-color: #F3E0BE;}
-
-    h3.toolHeader{
-        padding: 0px;
-        margin: 5px 0 0 0;
-        margin-block-start: 0px;
-        margin-block-end: 0px;
-    }
-
-    div.toolDetail ul{
-        list-style-type: none;
-        list-style: none;
-        padding: 0px;
-        margin: 5px 0 0 0;
-        margin-block-start: 0px;
-        margin-block-end: 0px;
-    }
-
-    div.toolDetail {
-        margin-left: 20px;
-        background: transparent;
-        color: #F3E0BE;
-    }
-    /*
-
-    */
-
-    .toolHeader{    background-color: #b8860b;}
-    .toolItem{    color: #F3E0BE; background: transparent; }
-
-    .activeJob{
-        background-color: darkgoldenrod;
-        color: #ffffff;
-    }
-
-    .locationItem{
-        list-style-type: none;
-        list-style: none;
-    }
-
-    .locationItem ul li{
-        list-style-type: none;
-        list-style: none;
-    }
-
-    .jobDetail ul{    list-style: none;}
-    .jdHeader{    color: #5A3E36;}
-    .jdItem{    color: #006E6D; background: transparent; }
-
-
-    #jobs > div > h3:hover{
-        background-color: darkgoldenrod;
-        color: #ffffff;
-    }
-
-    .inlineli{
-        display: inline-flex;
-        flex-flow: row;
-    }
-
-    .inlineli span{    margin-right: 10px;}
-
-    #profile {
-        padding: 30px 30 10 10;
-        margin: auto;
-        color: #ffffff;
-        font-size: 30px;
-        text-align: center;	
-        text-decoration: none;
-        width: 60%;
-    }
-
-    ul.tabs {
-        height: 80px;
-        margin: 0 auto;
-        list-style: none;
-        overflow: hidden;
-        padding: 0;
-        margin-bottom: 2px;
-        font-weight: bold;  
-    }
-
-    ul.tabs li {
-        display: flex;
-        flex-flow: row;
-        width: 12.5%;
-    }
-
-    ul.tabs li a {
-        position: relative;
-        display: flex;
-        height: 30px;
-        margin-top: 10px;
-        padding: 5px 0 5 5;
-        font-size: 28px;
-        text-align: center;	
-        text-decoration: none;
-        color: #ffffff;
-        background-color: transparent;
-        -webkit-box-shadow: 8px 12px 10px 2px rgba(0,0,0,0.4);
-        -moz-box-shadow: 8px 12px 10px 2px rgba(0,0,0,0.4);
-        box-shadow: 8px 12px 10px 2px rgba(0,0,0,0.4);
-        border: 0px solid #000000;
-        -webkit-transition: padding 0.2s ease, margin 0.2s ease;
-        -moz-transition: padding 0.2s ease, margin 0.2s ease;
-        -o-transition: padding 0.2s ease, margin 0.2s ease;
-        -ms-transition: padding 0.2s ease, margin 0.2s ease;
-        transition: padding 0.2s ease, margin 0.2s ease;
-    }
-
-
-    ul.tabs li a:hover {
-        margin:  00px 0 20px 0;
-        padding: 10px 0 10px 0;
-    }
-
-    ul.tabs li a.active {
-        margin:  00px 0 20px 0;
-        padding: 10px 0 10px 0;
-        background-color: #545f60;
-        color: #ff9933;
-        z-index: 4;
-        outline: none;
-    }
 }
