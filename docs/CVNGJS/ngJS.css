@@ -34,7 +34,7 @@
         float: top;
         list-style-type: none;
         list-style: none;
-        display: flexbox;
+        display: block;
         text-align: left;
 
     }
