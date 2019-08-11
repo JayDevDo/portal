@@ -13,6 +13,7 @@
         #contentWrapper{
             overflow-y: scroll;
             margin: 0 auto;
+            width: 66%;
             background: -webkit-radial-gradient(50% 16% circle, #c36fd4 32%, #332bab 88%);
             background: radial-gradient(circle at 50% 16%, #c36fd4 32%, #332bab 88%);
           
