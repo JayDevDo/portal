@@ -91,10 +91,4 @@ angular.module('cvngjs')
                 $scope.tabHandler(1);
             }
             console.log("end of cvNG.js cvInit");
-            if( $scope.CVcntrl.getCVAll ){
-                // $scope.CVcntrl  =   {}; 
-                console.log("cvJSONCntrl.$scope.CVcntrl.getCVAll ", $scope.CVcntrl.getCVAll() )
-            }
-
-
         }

@@ -65,6 +65,8 @@ function cvJSONCntrl($scope, $rootScope, $http, $filter ,cvJSONFctr) {
         }
     }
  
+    console.log("cvJSONCntrl.getCVAll ", $scope.CVcntrl.getCVAll() )
+
     console.log("exit cvJSONCntrl") ;
 }
 
