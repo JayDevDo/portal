@@ -16,7 +16,7 @@ app.factory(
                         $rootScope.httpPromise.then( 
                                                 (response)=>{ 
                                                     console.log("app.factory('cvJSONFctr'.getAllcvData http success", response );
-                                                    this.retData1 = response.data;
+                                                    $rootScope.CVcntrl.allData = response.data;
                                                     return response.data; 
                                                 }
                                             );
@@ -26,7 +26,7 @@ app.factory(
                         $rootScope.httpPromise.then( 
                                                 (response)=>{ 
                                                     console.log("app.factory('cvJSONFctr'.getSomeCVData ", section ," http success", response.data[section] );
-                                                    this.retData2 = response.data[section];
+                                                    $rootScope.CVcntrl.someData = response.data[section];
                                                     return response.data[section]; 
                                                 }
                                             );
@@ -48,20 +48,20 @@ function cvJSONCntrl($scope, $rootScope, $http, $filter ,cvJSONFctr) {
                 getCVAll:   ()=>{ 
                                 let retData =  cvJSONFctr.getAllCVData();
                                 (retData)=>{
-                                        $scope.CVcntrl.allData = retData;
+                                    $rootScope.CVcntrl.allData = retData;
                                         console.log(
                                             "controller log, getCVSection after : ", lr,
-                                            "scope.CVcntrl.allData = data", $scope.CVcntrl.allData 
+                                            "scope.CVcntrl.allData = data", $rootScope.CVcntrl.allData 
                                         )
                                 }
                 },
                 getCVSection:   (section)=>{
                                     let retData =  cvJSONFctr.getSomeCVData(section);
                                     (retData)=>{
-                                            $scope.CVcntrl.someData = retData;
+                                        $rootScope.CVcntrl.someData = retData;
                                             console.log(
                                                 "controller log, getCVSection after : ", lr,
-                                                "scope.CVcntrl.someData = data[section]", $scope.CVcntrl.someData 
+                                                "scope.CVcntrl.someData = data[section]", $rootScope.CVcntrl.someData 
                                             )
                                     }
                 }
