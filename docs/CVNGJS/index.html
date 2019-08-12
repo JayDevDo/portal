@@ -17,10 +17,10 @@
     
     <!-- https://jaydevdo.github.io/CV/CVNGJS/index.html -->
     
-    <body ng-app="cvngjs" width=100%>
-      <div class="wrap">
-        <div id="mainContent" ng-controller="cvInit">
-          <div id="tabWrapper">
+    <body ng-app="cvngjs" width=100% ng-controller="cvInit">
+      <div class="wrap" >
+        <div id="mainContent" ng-controller="cvJSONCntrl">
+          <div id="tabWrapper" >
             <ul class="tabs">
               <li tabIndex=0 ng-click=tabHandler(0) ><a href="#profile" >Profile</a></li>
               <li tabIndex=1 ng-click=tabHandler(1) ><a href="#jobs"    >Jobs</a></li>
@@ -86,6 +86,7 @@
         angular.module('cvngjs', ['ngAnimate'] ) ;	
     </script>
     <script src="cvDirective.js" ></script>
+    <script src="cvCntl.js" ></script>
     <script src="cvNG.js" ></script>
 </html>
     

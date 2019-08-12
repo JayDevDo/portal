@@ -1,9 +1,9 @@
 
 angular.module('cvngjs')
     .controller('cvInit', cvInit );
-    cvInit.$inject = [ '$rootScope', '$scope', '$http' ];
+    cvInit.$inject = [ '$rootScope', '$scope', '$http', 'cvJSONFctr' ];
 
-        function cvInit( $rootScope, $scope, $http){ 
+        function cvInit( $rootScope, $scope, $http, cvJSONFctr){ 
             $scope 	= $rootScope;
             $scope.httpPromise  = $http.get( "../data/cv.json");
             $scope.httpPromise.then(function(response){
