@@ -2,7 +2,7 @@ let app = angular.module('cvngjs');
 
 app.factory(
     'cvJSONFctr', 
-    ( $rootScope, $scope, $http )=>{
+    ( $rootScope, $http )=>{
         if( !$scope.httpPromise ){ 
             $scope.httpPromise  = $http.get( "../data/cv.json"); 
         }
