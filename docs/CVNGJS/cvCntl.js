@@ -51,22 +51,21 @@ function cvJSONCntrl($scope, $rootScope, $http, $filter ,cvJSONFctr) {
         }
                                         
         $scope.CVcntrl.someData = [];
-        $scope.CVcntrl.getCVSection = (section)=>{
-                cvJSONFctr.getSomeCVData(section).then(
-                    (data)=>{
-                        $scope.CVcntrl.someData = data[section];
-                        console.log(
-                            "controller log, getCVSection after : ", lr,
-                            "scope.CVcntrl.someData = data[section]", $scope.CVcntrl.someData 
-                        )
-                    }
-                )
+        $scope.CVcntrl.getCVSection =   (section)=>{
+                                            cvJSONFctr.getSomeCVData(section).then(
+                                                (data)=>{
+                                                    $scope.CVcntrl.someData = data[section];
+                                                    console.log(
+                                                        "controller log, getCVSection after : ", lr,
+                                                        "scope.CVcntrl.someData = data[section]", $scope.CVcntrl.someData 
+                                                    )
+                                                }
+                                            )
         
         }
     }
  
-    console.log("cvJSONCntrl.getCVAll ", $scope.CVcntrl.getCVAll() )
-
+    console.log("cvJSONCntrl.getCVAll ", $scope.CVcntrl.getCVAll() );
     console.log("exit cvJSONCntrl") ;
 }
 

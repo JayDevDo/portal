@@ -53,42 +53,49 @@ angular.module('cvngjs')
             $scope.fltrByDomain =   (domain)=>{
                                         console.log("fn fltrByDomain called", domain);
                                         $scope.clearFilter();
-                                        if( domain==="Customer Service"){ domain="CS" }
+                                            if( domain==="Customer Service"){ domain="CS" }
                                         $scope.fltrRes.key.srchKey   = "job Domain";
                                         $scope.fltrRes.key.value     = domain;
                                         $scope.fltrRes.active        = true;
                                         $scope.fltrRes.found         = 0;
-                                        for(let i=0; i<$scope.cvJobs.length ;i++){
-                                            let jDomain = $scope.cvJobs[i].jobDomain;
-                                                if( jDomain.includes(domain) ){ 
-                                                    $scope.fltrArr[i] = true;
-                                                    $scope.fltrRes.found++ ;
-                                                }else{
-                                                    $scope.fltrArr[i] = false;
-                                                }
-                                        }
-                                        console.log("$scope.fltrArr:", $scope.fltrArr, lr, "$scope.fltrRes:", $scope.fltrRes );
+                                            for(let i=0; i<$scope.cvJobs.length ;i++){
+                                                let jDomain = $scope.cvJobs[i].jobDomain;
+                                                    if( jDomain.includes(domain) ){ 
+                                                        $scope.fltrArr[i] = true;
+                                                        $scope.fltrRes.found++ ;
+                                                    }else{
+                                                        $scope.fltrArr[i] = false;
+                                                    }
+                                            }
+                                        console.log(
+                                                    "$scope.fltrArr:", $scope.fltrArr, lr, 
+                                                    "$scope.fltrRes:", $scope.fltrRes 
+                                        );
                                         $scope.tabHandler(1);    
             }
 
             $scope.fltrByCountry =   (loc)=>{
-                console.log("fn fltrByCountry called", loc );
-                $scope.clearFilter();
-                $scope.fltrRes.key.srchKey   = "Country";
-                $scope.fltrRes.key.value     = loc ;
-                $scope.fltrRes.active        = true;
-                $scope.fltrRes.found         = 0;
-                for(let i=0; i<$scope.cvJobs.length ;i++){
-                    let jLoc = $scope.cvJobs[i].countryAndlocation;
-                        if( jLoc.includes(loc) ){ 
-                            $scope.fltrArr[i] = true;
-                            $scope.fltrRes.found++ ;
-                        }else{
-                            $scope.fltrArr[i] = false;
-                        }
-                }
-                console.log("$scope.fltrArr:", $scope.fltrArr, lr, "$scope.fltrRes:", $scope.fltrRes );
-                $scope.tabHandler(1);
+                                        console.log("fn fltrByCountry called", loc );
+                                        $scope.clearFilter();
+                                        $scope.fltrRes.key.srchKey   = "Country";
+                                        $scope.fltrRes.key.value     = loc ;
+                                        $scope.fltrRes.active        = true;
+                                        $scope.fltrRes.found         = 0;
+                                            for(let i=0; i<$scope.cvJobs.length ;i++){
+                                                let jLoc = $scope.cvJobs[i].countryAndlocation;
+                                                    if( jLoc.includes(loc) ){ 
+                                                        $scope.fltrArr[i] = true;
+                                                        $scope.fltrRes.found++ ;
+                                                    }else{
+                                                        $scope.fltrArr[i] = false;
+                                                    }
+                                            }
+                                        console.log(
+                                                    "$scope.fltrArr:", $scope.fltrArr, lr, 
+                                                    "$scope.fltrRes:", $scope.fltrRes 
+                                        );
+                                        $scope.tabHandler(1);
             }
+
             console.log("end of cvNG.js cvInit");
         }
