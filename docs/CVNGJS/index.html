@@ -23,14 +23,30 @@
         <div id="mainContent" ng-controller="cvJSONCntrl">
           <div id="tabWrapper" >
             <ul class="tabs">
-              <li tabIndex=0 ng-click=tabHandler(0) ><a href="#profile" >Profile</a></li>
-              <li tabIndex=1 ng-click=tabHandler(1) ><a href="#jobs"    >Jobs</a></li>
-              <li tabIndex=2 ng-click=tabHandler(2) ><a href="#domains" >Domains</a></li>
-              <li tabIndex=3 ng-click=tabHandler(3) ><a href="#languages">Languages</a></li>
-              <li tabIndex=4 ng-click=tabHandler(4) ><a href="#education">Education</a></li>
-              <li tabIndex=5 ng-click=tabHandler(5) ><a href="#tools"   >Tools used</a></li>
-              <li tabIndex=6 ng-click=tabHandler(6) ><a href="#locations">Locations</a></li>
-              <li tabIndex=7 ng-click=tabHandler(7) ><a href="#contact" >Contact</a></li>
+              <li tabIndex=0 ng-click='tabHandler(0)' ng-class="{'activeTab': isActTab(0) }"  >
+                <a href="#profile" >Profile</a>
+              </li>
+              <li tabIndex=1 ng-click=tabHandler(1) ng-class="{'activeTab': isActTab(1) }"  >
+                  <a href="#jobs"    >Jobs</a>
+              </li>
+              <li tabIndex=2 ng-click=tabHandler(2) ng-class="{'activeTab': isActTab(2) }" >
+                <a href="#domains" >Domains</a>
+              </li>
+              <li tabIndex=3 ng-click=tabHandler(3) ng-class="{'activeTab': isActTab(3) }" >
+                <a href="#languages">Languages</a>
+              </li>
+              <li tabIndex=4 ng-click=tabHandler(4) ng-class="{'activeTab': isActTab(4) }" >
+                <a href="#education">Education</a>
+              </li>
+              <li tabIndex=5 ng-click=tabHandler(5) ng-class="{'activeTab': isActTab(5) }" >
+                <a href="#tools"   >Tools used</a>
+              </li>
+              <li tabIndex=6 ng-click=tabHandler(6) ng-class="{'activeTab': isActTab(6) }" >
+                <a href="#locations">Locations</a>
+              </li>
+              <li tabIndex=7 ng-click=tabHandler(7) ng-class="{'activeTab': isActTab(7) }" >
+                <a href="#contact" >Contact</a>
+              </li>
             </ul>
           </div>
 
@@ -40,8 +56,8 @@
               </div>
               <div tabPanel=1 ng-show="isActTab(1)" id="jobs">
                 <div id="srchResults" ng-show="fltrRes.active">
-                  <span>Found {{ fltrRes.found }} jobs </span>
-                  <span>with {{ fltrRes.key.srchKey }} being {{ fltrRes.key.value }} </span>
+                  <span>Found <b>{{ fltrRes.found }}</b> jobs </span>
+                  <span>with <b>{{ fltrRes.key.srchKey }}</b> being <b>{{ fltrRes.key.value }}</b> </span>
                   <span><button ng-click="clearFilter()">clear filter</button></span>
                 </div>
                 <cvJobsDrctv class=".cvJobsDrctv"></cvJobsDrctv>

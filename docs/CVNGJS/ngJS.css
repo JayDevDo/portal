@@ -2,6 +2,14 @@
 @media (max-width: 999px) {
     * {box-sizing: border-box}
 
+    body{
+    /*    background-color: #2A293E; */
+        background: -webkit-radial-gradient(50% 16% circle, #c36fd4 32%, #332bab 88%);
+        background: radial-gradient(circle at 50% 16%, #c36fd4 32%, #332bab 88%);
+        color: #D8D8D8;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
     #mainContent {
         width: 100%;
         height: 100%;
@@ -19,9 +27,9 @@
     }
   
     #tabWrapper{
-        -webkit-flex-basis: 15%; /* Safari 6.1+ */
-        flex-basis: 15%;        
-        width: 15%;
+        -webkit-flex-basis: 22%; /* Safari 6.1+ */
+        flex-basis: 22%;
+        width: 22%;
         height: 100%;
     }
 
@@ -32,6 +40,7 @@
         margin-block-end: 0px;
         padding-inline-start: 2px;
         width: 100%;
+        flex-flow: column;
     }
 
     li{
@@ -39,28 +48,110 @@
         list-style: none;
         display: inline-block;
         text-align: left;
-
+        flex-flow: column;
     }
 
-    ul.tabs > li > span{    
-    position: relative;
-    display: block;
-    height: 30px;
-    margin-top: 10px;
-    padding: 5px 0 5 5;
-    font-size: 28px;
-    text-align: center;	
-    text-decoration: none;
-    color: #ffffff;
-    background-color: transparent;
-    border: 0px solid #000000;
+    ul.tabs > li{
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 10%;
+        margin-top: 5px;
+        padding: 5px 0 5 5;
+        font-size: 22px;
+        text-align: left;	
+        text-decoration: none;
+        border: 0px solid #000000;
+    }
+
+    ul.tabs > li:hover{
+        background-color: darkgoldenrod;
+        color: #ffffff;
+    }
+
+    ul.tabs > li > a{    
+        position: relative;
+        display: block;
+        margin-top: 5px;
+        padding: 5px 0 5 5;
+        font-size: 22px;
+        text-align: left;	
+        text-decoration: none;
+        color: #ffffff;
+        width: 100%;
+        background: transparent;
+        border: 0px solid #000000;
 }
 
     #contentWrapper{
-        width: 80%;
+        margin-left: 10px;
+        width: 75%;
         height: 100%;
-        -webkit-flex-basis: 80%; /* Safari 6.1+ */
-        flex-basis: 80%;        
+        -webkit-flex-basis: 75%; /* Safari 6.1+ */
+        flex-basis: 75%;  
+        overflow-y: scroll;      
+    }
+
+    #contentWrapper > div{
+        padding-left: 10px;
+    }
+
+    h3{
+        font-size: 0.75rem;
+    }
+
+    .jobHeader{
+        font-size: 0.85rem;
+    }
+
+    .activeJob{
+        background-color: darkgoldenrod;
+        color: #ffffff;
+    }
+
+    .locationItem{
+        list-style-type: none;
+        list-style: none;
+    }
+
+    .locationItem ul li{
+        list-style-type: none;
+        list-style: none;
+    }
+
+
+    ul.tabs li:hover {
+        margin:  0 0 0 10px;
+        padding: 5px 0 5px 0;
+    }
+
+    .activeTab {
+        margin:  0 0 0 5px;
+        padding: 5px 0 5px 0;
+        background-color: darkgoldenrod;
+        color: #ffffff;
+        z-index: 4;
+        outline: none;
+    }  
+
+    div.jobDetail{ background-color: #F3E0BE; opacity: 10%;}
+    .jobDetail ul{    list-style: none;}
+    .jdHeader{    color: #5A3E36;}
+    .jdItem{    color: #006E6D; background: transparent; }
+
+    #jobs > div > h3:hover{
+        background-color: darkgoldenrod;
+        color: #ffffff;
+    }
+
+    #profile {
+        padding: 5px 15px 10px 10px;
+        margin: auto;
+        color: #ffffff;
+        font-size: 24px;
+        text-align: center;	
+        text-decoration: none;
+        width: 80%;
     }
 
 }

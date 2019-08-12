@@ -25,8 +25,13 @@ app.factory(
                     getSomeCVData: (section)=>{
                         $rootScope.httpPromise.then( 
                                                 (response)=>{ 
-                                                    console.log("app.factory('cvJSONFctr'.getSomeCVData ", section ," http success", response.data[section] );
                                                     $rootScope.CVcntrl.someData = response.data[section];
+                                                    console.log(
+                                                                "app.factory('cvJSONFctr'.getSomeCVData ", section ,
+                                                                " http success", response.data[section], 
+                                                                "rootScope.CVcntrl.someData:", $rootScope.CVcntrl.someData.length
+                                                    );
+
                                                     return response.data[section]; 
                                                 }
                                             );
@@ -68,13 +73,13 @@ function cvJSONCntrl($scope, $rootScope, $http, $filter ,cvJSONFctr) {
         }
         
         console.log(
-            "cvJSONCntrl endofCVcntrl .getCVAll ", $scope.CVcntrl.getCVAll(), 
-            "cvJSONFctr.getAllCVData()", cvJSONFctr.getAllCVData()        
+            "cvJSONFctr.getAllCVData()", cvJSONFctr.getAllCVData(),
+            "cvJSONCntrl endofCVcntrl .getCVAll ", $scope.CVcntrl.allData.length
         );
 
         console.log(
-            "cvJSONCntrl endofCVcntrl .getCVSection ", $scope.CVcntrl.getCVSection("jobs"), 
-            "cvJSONFctr.getAllCVData()", cvJSONFctr.getSomeCVData("profile")
+            "cvJSONFctr.getsomeCVData()", cvJSONFctr.getSomeCVData("jobDomains"),
+            "cvJSONCntrl endofCVcntrl .getCVSection ", $scope.CVcntrl.someData.length
         );
 
 

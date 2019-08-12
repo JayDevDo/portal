@@ -21,8 +21,9 @@ angular.module('cvngjs')
 
             $scope.activeTab    =   0;
             $scope.isActTab     =   (tabNr)=>{ return (tabNr === $scope.activeTab);  }
-            $scope.tabHandler   =   (tabNr)=>{  $scope.activeTab = tabNr 
-                                                // console.log("active tab = ", tabNr );    
+            $scope.tabHandler   =   (tabNr)=>{  
+                                        $scope.activeTab = tabNr;
+                                        console.log("active tab = ", tabNr );    
             }
 
             $scope.activeJob    =   -1;
