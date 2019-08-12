@@ -60,8 +60,8 @@ function cvJSONCntrl($scope, $rootScope, $http, $filter ,cvJSONFctr) {
                                         }
                                     )
                 },
-                endofReturn:    (){
-                                    console.log("cvJSONCntrl.getCVAll ", $scope.CVcntrl.getCVAll() );
+                endofCVcntrl:    (){
+                                    console.log("cvJSONCntrl endofCVcntrl .getCVAll ", $scope.CVcntrl.getCVAll() );
                 }
         }
     }
