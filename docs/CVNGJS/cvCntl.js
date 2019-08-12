@@ -2,12 +2,14 @@ let app = angular.module('cvngjs');
 
 app.factory(
     'cvJSONFctr', 
-    ($rootScope,$http)=>{
+    ( $rootScope, $scope, $http )=>{
+        if( !$scope.httpPromise ){ 
+            $scope.httpPromise  = $http.get( "../data/cv.json"); 
+        }
         // console.log("enter jdLegDartsPFactory (T3)") ;
         return	{
                     getAllCVData:	()=>{
-                                        $http.get("../data/cv.json")
-                                            .success( 
+                        $scope.httpPromise.then( 
                                                 (response)=>{ 
                                                     console.log("app.factory('cvJSONFctr'.getAllcvData http success", response );
                                                     return response.data; 
@@ -16,8 +18,7 @@ app.factory(
                     },
 
                     getSomeCVData: (section)=>{
-                                        $http.get("../data/cv.json")
-                                            .success( 
+                        $scope.httpPromise.then( 
                                                 (response)=>{ 
                                                     console.log("app.factory('cvJSONFctr'.getSomeCVData http success", response );                                                    
                                                     return response.data[section]; 
