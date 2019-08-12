@@ -35,9 +35,9 @@ function cvJSONCntrl($scope, $rootScope, $http, $filter ,cvJSONFctr) {
     $scope = $rootScope;
 
     if( !$scope.CVcntrl ){
-        $scope = $rootScope.CVcntrl ;
+        $scope.CVcntrl = {};
         //	console.log('valBOS: ' + valBOS  +  ' | valBOL: ' + valBOL );
-        $scope.CVcntrl.allData = [];
+        $scope.CVcntrl.allData  = [];
         $scope.CVcntrl.getCVAll =   ()=>{ 
                                             cvJSONFctr.getAllCVData().then(
                                                 (data)=>{
