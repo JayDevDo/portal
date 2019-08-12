@@ -90,5 +90,11 @@ angular.module('cvngjs')
                 console.log("$scope.fltrArr:", $scope.fltrArr, lr, "$scope.fltrRes:", $scope.fltrRes );
                 $scope.tabHandler(1);
             }
+            console.log("end of cvNG.js cvInit");
+            if( $scope.CVcntrl.getCVAll ){
+                // $scope.CVcntrl  =   {}; 
+                console.log("cvJSONCntrl.$scope.CVcntrl.getCVAll ", $scope.CVcntrl.getCVAll() )
+            }
+
 
         }
