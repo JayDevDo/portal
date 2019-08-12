@@ -25,7 +25,7 @@ app.factory(
                     getSomeCVData: (section)=>{
                         $rootScope.httpPromise.then( 
                                                 (response)=>{ 
-                                                    console.log("app.factory('cvJSONFctr'.getSomeCVData http success", response );                                                    
+                                                    console.log("app.factory('cvJSONFctr'.getSomeCVData ", section ," http success", response.data[section] );
                                                     this.retData2 = response.data[section];
                                                     return response.data[section]; 
                                                 }
@@ -47,30 +47,37 @@ function cvJSONCntrl($scope, $rootScope, $http, $filter ,cvJSONFctr) {
                 someData:   [],
                 getCVAll:   ()=>{ 
                                 let retData =  cvJSONFctr.getAllCVData();
-                                retData.then(
-                                    (data)=>{
-                                        $scope.CVcntrl.allData = data;
+                                (retData)=>{
+                                        $scope.CVcntrl.allData = retData;
                                         console.log(
                                             "controller log, getCVSection after : ", lr,
                                             "scope.CVcntrl.allData = data", $scope.CVcntrl.allData 
                                         )
-                                    }
-                                )
+                                }
                 },
                 getCVSection:   (section)=>{
-                                        $scope.cvJSONFctr.getSomeCVData(section).then(
-                                        (data)=>{
-                                            $scope.CVcntrl.someData = data[section];
+                                    let retData =  cvJSONFctr.getSomeCVData(section);
+                                    (retData)=>{
+                                            $scope.CVcntrl.someData = retData;
                                             console.log(
                                                 "controller log, getCVSection after : ", lr,
                                                 "scope.CVcntrl.someData = data[section]", $scope.CVcntrl.someData 
                                             )
-                                        }
-                                    )
+                                    }
                 }
         }
         
-        console.log("cvJSONCntrl endofCVcntrl .getCVAll ", $scope.CVcntrl.getCVAll() );
+        console.log(
+            "cvJSONCntrl endofCVcntrl .getCVAll ", $scope.CVcntrl.getCVAll(), 
+            "cvJSONFctr.getAllCVData()", cvJSONFctr.getAllCVData()        
+        );
+
+        console.log(
+            "cvJSONCntrl endofCVcntrl .getCVSection ", $scope.CVcntrl.getCVSection("jobs"), 
+            "cvJSONFctr.getAllCVData()", cvJSONFctr.getSomeCVData("profile")
+        );
+
+
     }
 
     console.log("exit cvJSONCntrl") ;
