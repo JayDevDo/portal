@@ -46,7 +46,7 @@ function cvJSONCntrl($scope, $rootScope, $http, $filter ,cvJSONFctr) {
                 allData:    [],
                 someData:   [],
                 getCVAll:   ()=>{ 
-                                cvJSONFctr.getAllCVData().then(
+                                let retData =  cvJSONFctr.getAllCVData().then(
                                     (data)=>{
                                         $scope.CVcntrl.allData = data;
                                         console.log(
@@ -57,7 +57,7 @@ function cvJSONCntrl($scope, $rootScope, $http, $filter ,cvJSONFctr) {
                                 )
                 },
                 getCVSection:   (section)=>{
-                                    cvJSONFctr.getSomeCVData(section).then(
+                                        $scope.cvJSONFctr.getSomeCVData(section).then(
                                         (data)=>{
                                             $scope.CVcntrl.someData = data[section];
                                             console.log(
