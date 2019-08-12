@@ -31,12 +31,6 @@ app.factory(
                                                 }
                                             );
                     }
-
-                console.log(
-                    "log factory return ",
-                    " alldata len",  this.retData1.length, 
-                    " someData len", this.retData2.length  
-                );
         }
     }
 );
