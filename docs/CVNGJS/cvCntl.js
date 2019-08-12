@@ -3,28 +3,40 @@ let app = angular.module('cvngjs');
 app.factory(
     'cvJSONFctr', 
     ( $rootScope, $http )=>{
-        if( !$scope.httpPromise ){ 
-            $scope.httpPromise  = $http.get( "../data/cv.json"); 
+        if( !$rootScope.httpPromise ){ 
+            $rootScope.httpPromise  = $http.get( "../data/cv.json"); 
         }
+
+        this.retData1 = [];
+        this.retData2 = [];
+
         // console.log("enter jdLegDartsPFactory (T3)") ;
         return	{
                     getAllCVData:	()=>{
-                        $scope.httpPromise.then( 
+                        $rootScope.httpPromise.then( 
                                                 (response)=>{ 
                                                     console.log("app.factory('cvJSONFctr'.getAllcvData http success", response );
+                                                    this.retData1 = response.data;
                                                     return response.data; 
                                                 }
                                             );
                     },
 
                     getSomeCVData: (section)=>{
-                        $scope.httpPromise.then( 
+                        $rootScope.httpPromise.then( 
                                                 (response)=>{ 
                                                     console.log("app.factory('cvJSONFctr'.getSomeCVData http success", response );                                                    
+                                                    this.retData2 = response.data[section];
                                                     return response.data[section]; 
                                                 }
                                             );
                     }
+
+                console.log(
+                    "log factory return ",
+                    " alldata len",  this.retData1.length, 
+                    " someData len", this.retData2.length  
+                );
         }
     }
 );
