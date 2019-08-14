@@ -56,8 +56,15 @@
               </div>
               <div tabPanel=1 ng-show="isActTab(1)" id="jobs">
                 <div id="srchResults" ng-show="fltrRes.active">
-                  <span>Found <b>{{ fltrRes.found }}</b> jobs </span>
-                  <span>with <b>{{ fltrRes.key.srchKey }}</b> being <b>{{ fltrRes.key.value }}</b> </span>
+                  <span>Found 
+                    <b>{{ fltrRes.found }}</b> 
+                    jobs 
+                  </span>
+                  <span>with 
+                    <b>{{ fltrRes.key.srchKey }}</b> 
+                    being 
+                    <b>{{ fltrRes.key.value }}</b> 
+                  </span>
                   <span><button ng-click="clearFilter()">clear filter</button></span>
                 </div>
                 <cvJobsDrctv class=".cvJobsDrctv"></cvJobsDrctv>

@@ -58,7 +58,7 @@
         height: 10%;
         margin-top: 5px;
         padding: 5px 0 5 5;
-        font-size: 22px;
+        font-size: 0.7rem;
         text-align: left;	
         text-decoration: none;
         border: 0px solid #000000;
@@ -74,7 +74,7 @@
         display: block;
         margin-top: 5px;
         padding: 5px 0 5 5;
-        font-size: 22px;
+        font-size: 0.7rem;
         text-align: left;	
         text-decoration: none;
         color: #ffffff;
@@ -82,6 +82,10 @@
         background: transparent;
         border: 0px solid #000000;
 }
+
+    .srchResults > span > b{
+        background-color: darkgoldenrod !important;    
+    } 
 
     #contentWrapper{
         margin-left: 10px;
@@ -148,7 +152,7 @@
         padding: 5px 15px 10px 10px;
         margin: auto;
         color: #ffffff;
-        font-size: 24px;
+        font-size: 0.8rem;
         text-align: center;	
         text-decoration: none;
         width: 80%;

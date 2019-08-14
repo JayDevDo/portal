@@ -7,84 +7,58 @@ app.factory(
             $rootScope.httpPromise  = $http.get( "../data/cv.json"); 
         }
 
-        this.retData1 = [];
-        this.retData2 = [];
-
         // console.log("enter jdLegDartsPFactory (T3)") ;
         return	{
-                    getAllCVData:	()=>{
-                        $rootScope.httpPromise.then( 
-                                                (response)=>{ 
-                                                    console.log("app.factory('cvJSONFctr'.getAllcvData http success", response );
-                                                    $rootScope.CVcntrl.allData = response.data;
-                                                    return response.data; 
-                                                }
-                                            );
-                    },
-
-                    getSomeCVData: (section)=>{
-                        $rootScope.httpPromise.then( 
-                                                (response)=>{ 
-                                                    $rootScope.CVcntrl.someData = response.data[section];
-                                                    console.log(
-                                                                "app.factory('cvJSONFctr'.getSomeCVData ", section ,
-                                                                " http success", response.data[section], 
-                                                                "rootScope.CVcntrl.someData:", $rootScope.CVcntrl.someData.length
-                                                    );
-
-                                                    return response.data[section]; 
-                                                }
-                                            );
+            getAllCVData:	()=>{
+                $rootScope.httpPromise.then( 
+                    (response)=>{ 
+                        $rootScope.CVcntrl.allData = response.data;
+                        return response.data; 
                     }
+                );
+            },
+
+            getSomeCVData: (section)=>{
+                $rootScope.httpPromise.then( 
+                    (response)=>{ 
+                        console.log("response:", section )
+                        console.log( response.data[section])
+                        $rootScope.CVcntrl.someData = [response.data[section]] ;
+                        return response.data[section]; 
+                    }
+                );            }
         }
     }
 );
-
 
 app.controller('cvJSONCntrl', cvJSONCntrl );
 cvJSONCntrl.$inject = ['$scope', '$rootScope', '$http', '$filter' ,'cvJSONFctr'];
 function cvJSONCntrl($scope, $rootScope, $http, $filter ,cvJSONFctr) {
     $scope = $rootScope;
-
-    if( !$scope.CVcntrl ){
-        $scope.CVcntrl = {
-                allData:    [],
-                someData:   [],
-                getCVAll:   ()=>{ 
-                                let retData =  cvJSONFctr.getAllCVData();
-                                (retData)=>{
-                                    $rootScope.CVcntrl.allData = retData;
-                                        console.log(
-                                            "controller log, getCVSection after : ", lr,
-                                            "scope.CVcntrl.allData = data", $rootScope.CVcntrl.allData 
-                                        )
-                                }
-                },
-                getCVSection:   (section)=>{
-                                    let retData =  cvJSONFctr.getSomeCVData(section);
-                                    (retData)=>{
-                                        $rootScope.CVcntrl.someData = retData;
-                                            console.log(
-                                                "controller log, getCVSection after : ", lr,
-                                                "scope.CVcntrl.someData = data[section]", $rootScope.CVcntrl.someData 
-                                            )
+        if( !$scope.CVcntrl ){
+                $scope.CVcntrl = {
+                                    allData:    [],
+                                    someData:   [],
+                                    getCVAll:   ()=>{ 
+                                        let retData =  cvJSONFctr.getAllCVData();
+                                        (retData)=>{ $rootScope.CVcntrl.allData = retData; }
+                                        return retData;
+                                    },
+                                    getCVSection: (section)=>{
+                                        let retData =  cvJSONFctr.getSomeCVData(section);
+                                       console.log("getCVSection: ", section ," retData", retData);
+                                        (retData)=>{ $rootScope.CVcntrl.someData = retData; }
+                                        return retData;
                                     }
                 }
         }
-        
-        console.log(
-            "cvJSONFctr.getAllCVData()", cvJSONFctr.getAllCVData(),
-            "cvJSONCntrl endofCVcntrl .getCVAll ", $scope.CVcntrl.allData.length
-        );
+    console.log("$scope.CVcntrl.getCVAll()", $scope.CVcntrl.getCVAll() );
+    
+    console.log(
+        "getCVKey 0", $scope.CVcntrl.getCVSection( "jobDomains" ) , 
+        "getCVSection 0", $scope.testArr 
+    );
 
-        console.log(
-            "cvJSONFctr.getsomeCVData()", cvJSONFctr.getSomeCVData("jobDomains"),
-            "cvJSONCntrl endofCVcntrl .getCVSection ", $scope.CVcntrl.someData.length
-        );
-
-
-    }
-
-    console.log("exit cvJSONCntrl") ;
+    console.log("exit cvJSONCntrl");
 }
 

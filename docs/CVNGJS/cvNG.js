@@ -18,14 +18,29 @@ angular.module('cvngjs')
                 console.log("enter cvInit: arrays loaded from js:", ($scope.cvJobs.length>0) );  
             });
 
-
             $scope.activeTab    =   0;
             $scope.isActTab     =   (tabNr)=>{ return (tabNr === $scope.activeTab);  }
             $scope.tabHandler   =   (tabNr)=>{  
                                         $scope.activeTab = tabNr;
-                                        console.log("active tab = ", tabNr );    
+                                            if($scope.CVcntrl){
+                                                let nwtabsection = cvkeyArr[tabNr]; 
+                                                $scope.CVcntrl.getCVSection(nwtabsection );
+                                               // console.log(nwtabsection, "jobhandler len some data", $scope.CVcntrl.someData.length )
+                                            }
+                                        // console.log("active tab = ", tabNr );
             }
 
+            const cvkeyArr =    [    
+                "profile",
+                "jobs",
+                "jobDomains",
+                "languages",
+                "education",
+                "toolsSkills",
+                "jobLocations",
+                "contact"
+            ];
+        
             $scope.activeJob    =   -1;
             $scope.isActJob     =   (jobNr)=>{ return (jobNr === $scope.activeJob);  }
             $scope.jobHandler   =   (jobNr)=>{  // if job is expanded, collapse
