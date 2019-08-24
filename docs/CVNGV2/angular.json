@@ -23,7 +23,9 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [ "src/styles.css"],
+            "styles": [
+              "src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -111,8 +113,13 @@
               "devServerTarget": "CVNGV2:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "CVNGV2"
 }

@@ -16,9 +16,9 @@ export class JobsComponent implements OnInit {
   public jobsDmnData;
   public jobsLocData;
   public jobsLngData;
-  private lr = '\n';
+  public lr = '\n';
 
-  private actJob: number = -1;
+  public actJob: number = -1;
 
   constructor( private _cvDataService: CVService ) { }
 

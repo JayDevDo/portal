@@ -26,6 +26,6 @@ export class AppComponent implements OnInit {
       )
   }
 
-  private title = "Jay's CV presented with Angular 8.1.3" ;
+  public title = "Jay's CV presented with Angular 8.1.3" ;
 
 }
