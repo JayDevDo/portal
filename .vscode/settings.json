@@ -1,0 +1,4 @@
+{
+    "html.format.endWithNewline": true,
+    "git.fetchOnPull": true
+}
