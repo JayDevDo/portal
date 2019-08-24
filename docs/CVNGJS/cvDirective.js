@@ -114,6 +114,7 @@ angular.module('cvngjs')
                                             let jobexp = scope.cvJobs[j].durationMonths;
                                             if( scope.cvJobs[j].jobDomain.includes(jobdom)){domainExperience += jobexp; }
                                         }
+                                      //  console.log("domain", jobdom, "exp", domainExperience, "exp %", domainExperience%12 );
                                     let domainObj = { "domain": (jobdom==="CS")? "Customer Service":jobdom, "experience": ( domainExperience / 12).toFixed(0) }
                                     scope.domains.push( domainObj );
                                 }

@@ -1,0 +1,25 @@
+li{
+    list-style-type: none;
+    list-style: none;
+}
+
+div{
+    background-color: #2b5797;
+    color: #ffffff;
+    font-size: 1.25rem;
+    height: max-content;
+    margin: 0% 10% 1% 10% ;
+}
+
+h1{
+    color: #FDDC22;
+    text-align: center;
+    font-size: 1.5rem;
+    padding-top: 2px;
+}
+
+span > b{
+    color: #FDDC22;
+    font-size: 1.3rem;
+}
+

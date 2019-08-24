@@ -1,0 +1,125 @@
+<div class="jobContent">
+    <h1>{{ jobsData.id }}</h1>
+    <span>
+        <div>
+            <span>
+                    <button 
+                        (click)="changeFltrOpsState()"
+                    >
+                       {{ ( fltrAct.hideFltrOps )? 'show':'hide'  }} filter options
+                    </button> 
+            </span>
+
+            <span [hidden]="fltrAct.hideFltrOps">
+                Filter by:
+                <button (click)="changeShowDmn()" >Domain</button>
+                <button (click)="changeShowLoc()" >Location</button>
+                <button (click)="changeShowLng()" >Language</button>
+                <button (click)="changeShowTml()" >Timeline</button>
+            </span>
+            <div>
+                <span [hidden]="fltrAct.hideDmn" >
+                    <button (click)="filterJobsByDomain(jobsDmnData[0].domain)">{{ jobsDmnData[0].domain }} </button>
+                    <button (click)="filterJobsByDomain(jobsDmnData[1].domain)">{{ jobsDmnData[1].domain }} </button>
+                    <button (click)="filterJobsByDomain(jobsDmnData[2].domain)">{{ jobsDmnData[2].domain }} </button>
+                    <button (click)="filterJobsByDomain(jobsDmnData[3].domain)">{{ jobsDmnData[3].domain }} </button>
+                    <button (click)="filterJobsByDomain(jobsDmnData[4].domain)">{{ jobsDmnData[4].domain }} </button>
+                </span>
+                <span [hidden]="fltrAct.hideLoc" >
+                        <button (click)="filterJobsByLocation(jobsLocData[0].country)">{{ jobsLocData[0].country }} </button>
+                        <button (click)="filterJobsByLocation(jobsLocData[5].country)">{{ jobsLocData[5].country }} </button>
+                        <button (click)="filterJobsByLocation(jobsLocData[1].country)">{{ jobsLocData[1].country }} </button>
+                        <button (click)="filterJobsByLocation(jobsLocData[2].country)">{{ jobsLocData[2].country }} </button>
+                        <button (click)="filterJobsByLocation(jobsLocData[3].country)">{{ jobsLocData[3].country }} </button>
+                        <button (click)="filterJobsByLocation(jobsLocData[4].country)">{{ jobsLocData[4].country }} </button>
+                </span>
+                <span [hidden]="fltrAct.hideLng" >
+                    <button (click)="filterJobsByLanguage(jobsLngData[0].lcode)">{{ jobsLngData[0].lingo }} </button>                
+                    <button (click)="filterJobsByLanguage(jobsLngData[1].lcode)">{{ jobsLngData[1].lingo }} </button>                
+                    <button (click)="filterJobsByLanguage(jobsLngData[2].lcode)">{{ jobsLngData[2].lingo }} </button>                
+                    <button (click)="filterJobsByLanguage(jobsLngData[3].lcode)">{{ jobsLngData[3].lingo }} </button>                
+                </span>
+                <span [hidden]="fltrAct.hideTml" >
+                    <i>1993</i>
+                            <mat-slider thumbLabel 
+                                        tickInterval="auto" 
+                                        min="1993" 
+                                        max="2019" 
+                                        (input)="changeValue($event)"
+                            >
+                            </mat-slider>
+                    <i>2019</i>
+                </span>
+            </div>
+        </div>
+        <div id="srchRes" [hidden]="fltrRes.hide">
+            <span>Found <b>{{ fltrRes.found }}</b> jobs</span>
+            <span>with <b>{{ fltrRes.key.srchKey }}</b> being <b>{{ fltrRes.key.value }}</b></span>
+            <span class="clrFltr"><button (click)="resetFltrArr()">clear filter</button></span>
+        </div>
+    </span>
+
+    <div class="jobListWrapper">
+        <ul>
+            <li *ngFor="let job of jobsData.data; let i = index" 
+                (click)="setActJob(i)"
+                title="click for details"
+                [hidden]="jobFiltered(i)"
+                class="jobTitle"
+            >{{ job.jobTitle }}
+                <div [hidden]="!(i==actJob)" class="jobdetails">
+                    <ul class="joblist">
+                        <li>
+                            <span   class="jdHeader">Company:</span> 
+                            <span   class="jdItem">{{ job.company }}</span>
+                        </li>
+                        <li>
+                            <span   class="jdHeader">Descr:</span> 
+                            <span   class="jdItem">{{ job.jobDescr }}</span>
+                        </li>
+                        <li>
+                            <span   class="jdHeader">{{ (job.jobDomain.length>1)? "Domains":"Domain" }}:</span>
+                            <span   *ngFor="let dmn of job.jobDomain" 
+                                    class="jdItem domItem" 
+                            >
+                                {{ dmn }}
+                            </span>
+                        </li>
+                        <li>
+                            <span class="jdHeader">Location:</span> 
+                            <span class="jdItem">{{ job.countryAndlocation }}</span>
+                        </li>
+                        <li>
+                            <span class="jdHeader">Start Date:</span> 
+                            <span class="jdItem">{{ job.startDate }}</span>
+                        </li>
+                        <li>
+                            <span class="jdHeader">End Date:</span> 
+                            <span class="jdItem">{{ job.endDate }}</span>
+                        </li>
+                        <li>
+                            <span class="jdHeader">Duration:</span> 
+                            <span class="jdItem">{{ job.durationMonths }} months</span>
+                        </li>
+                        <li>
+                            <span class="jdHeader">Languages:</span> 
+                            <span   *ngFor="let lng of job.languages"
+                                    class="jdItem lngItem"
+                            >
+                                {{ lng }}
+                            </span>
+                        </li>
+                        <li>
+                            <span class="jdHeader">Tools used:</span> 
+                            <span   class="jdItem toolItem" 
+                                    *ngFor="let tl of job.toolsUsed"
+                            >
+                                {{ tl }}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

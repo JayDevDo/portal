@@ -1,0 +1,16 @@
+<div>
+    <h1>{{ jobLocationData.id }}</h1>
+    <a>
+        <ul>
+            <li *ngFor="let cntr of jobLocationData.data" >
+                <span><b>{{ cntr.country }}</b>:
+                    <ul>
+                        <li *ngFor="let loc of cntr.location" >
+                            <span>{{ loc }}</span>
+                        </li>
+                    </ul>
+                </span>
+            </li>
+        </ul>
+    </a>
+</div>
