@@ -1,2 +1,2 @@
-# Master
-Master repo with links to other repos
+# Jay's GH portal
+Main repo with links to other repos
