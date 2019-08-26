@@ -14,9 +14,6 @@
         },
         {
             "path": "/var/www/html/CVNGV2"
-        },
-        {
-            "path": "/var/www/html/CVNGV2-GH"
         }
     ]
 }
