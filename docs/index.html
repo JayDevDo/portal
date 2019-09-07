@@ -11,11 +11,12 @@
 
   <!-- 
     LOCAL:
-      http://127.0.0.1/portal/docs/index.html       
-      http://127.0.0.1/CV-JQ/index.html              
-      http://127.0.0.1/CVNGJS/index.html             
-      http://127.0.0.1/CVNGV2/index.html             
-      http://127.0.0.1/d3DartBoard/docs/index.html   
+      http://127.0.0.1/portal/docs/index.html
+      http://127.0.0.1/CV-JQ/index.html
+      http://127.0.0.1/CVNGJS/index.html
+      http://127.0.0.1/CVNGV2/index.html
+      http://127.0.0.1/CVNGV2/docs/index.html
+      http://127.0.0.1/d3DartBoard/docs/index.html
 
   -->
 
@@ -30,36 +31,49 @@
 -->
 
   <body>
+
     <div class="wrapper">
 
-      <div class="section">
+      <div class="section" id="NGJS" >
+          <div class="subsection">
+            <h2>My CV with AngularJS</h2>
+            <button><a href="https://jaydevdo.github.io/CVNGJS/index.html" target="_blank">click to open (new tab)</a></button>
+          </div>   
+      </div>
+
+      <div class="section" id="JQ">
 
           <div class="subsection">
             <h2>My CV with JQuery (UI)</h2>
             <button><a href="https://jaydevdo.github.io/CV-JQ/index.html" target="_blank">click to open (new tab)</a></button>
           </div>
-      
-          <div class="subsection">
-            <h2>My CV with AngularJS</h2>
-            <button><a href="https://jaydevdo.github.io/CVNGJS/index.html" target="_blank">click to open (new tab)</a></button>
-          </div>
-      
+
+      </div>
+
+      <div class="section" id="NGJSV2" >
           <div class="subsection">
             <h2>My CV with Angular 8</h2>
             <button><a href="https://jaydevdo.github.io/CVNGV2/index.html" target="_blank">click to open (new tab)</a></button>
           </div>
-
       </div>
 
-      <div class="section">
+      <div class="section" id="DartBoard" >
         <div class="subsection">
           <h2>Dartboard with D3</h2>
           <button><a href="https://jaydevdo.github.io/D3dartBoard/index.html"  target="_blank">click to open (new tab)</a></button>
         </div>
-      </div>      
+      </div>     
+      
+      <div class="section" id="FPL" >
+          <div class="subsection">
+            <h2>FPL team schedule</h2>
+            <button><a href="https://jaydevdo.github.io/FPL1/index.html"  target="_blank">click to open (new tab)</a></button>
+          </div>
+        </div>     
+        
 
-      <div class="section">
-        <i id="pageLoc"></i>
+      <div class="section" id="pageloc" >
+        <i id="loc"></i>
       </div>
 
     </div>
@@ -67,5 +81,5 @@
 </html>
 <script>
 let pageLoc = location.href;
-document.getElementById("pageLoc").innerHTML = "This page is hosted on:" + pageLoc;
+document.getElementById("loc").innerHTML = "This page is hosted on:<br>" + pageLoc;
 </script>

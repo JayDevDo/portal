@@ -1,36 +1,42 @@
 body{
-    background-color: #614abd;
+    background-color: #347B98;
     color: #f5f37c;
 }
 
 .wrapper{
+
     display: flex;
     flex-flow: column;
+
 }
 
 div.section{
     padding: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     border: 3px solid black;
     border-radius: 10px;
-    width: 45%;
+    width: fit-content;
+}
+
+div.section:hover{
+    border: 5px solid #FB8604;
 }
 
 div.subsection{
     padding: 5px;
-    margin-bottom: 10px;
-    width: 100%;
+    margin-bottom: 5px;
+    width: fit-content;
 }
 
 div.subsection h2{
     color: black;
-    padding-left: 25%;
+/*  padding-left: 2%; */
 }
 
 button{
     font-size: 32px;
-    width: 50%;
-    margin-left: 25%;
+    width: fit-content;
+    margin-left: 2px;
 }
 
 .hidden{
