@@ -39,7 +39,7 @@ h2{ display: block;}
 }
 
 div.section{
-    display:flex:
+    display:flex;
     flex-flow:column;    
     padding: 5px;
     margin-bottom: 5px;
