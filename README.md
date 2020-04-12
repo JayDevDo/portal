@@ -1,6 +1,9 @@
 # portal
 Main portal with links to other repos
 
-To open my githup portal:
 
-https://jaydevdo.github.io/portal/index.html
+<div class="row">
+  <a href="https://jaydevdo.github.io/portal/index.html" target="_blank">To open my githup portal:
+  </a>
+</div>
+  
