@@ -82,4 +82,12 @@
 <script>
 let pageLoc = location.href;
 document.getElementById("loc").innerHTML = "This page is hosted on:<br>" + pageLoc;
+
+let urlArr = pageLoc.split("/");
+console.log(
+  "pageLoc",pageLoc,
+  "urlArr", urlArr
+ );
+
+  
 </script>
