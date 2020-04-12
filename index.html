@@ -1,0 +1,95 @@
+<html>
+  <head>
+      <title>Jay's GitHub-pages portal</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      <div class="section" id="CV-JQ">
+          <div class="subsection">
+            <h2>My CV with JQuery(UI)</h2>
+            <button onClick="clickToOpen(0)" ><a>click to open (new tab)</a></button>
+          </div>
+      </div>
+
+      <div class="section" id="CVNGJS" >
+          <div class="subsection">
+            <h2>My CV with AngularJS</h2>
+            <button onClick="clickToOpen(1)" ><a>click to open (new tab)</a></button>
+          </div>   
+      </div>
+
+      <div class="section" id="CVNGV9" >
+          <div class="subsection">
+            <h2>My CV with Angular9</h2>
+            <button onClick="clickToOpen(2)" ><a>click to open (new tab)</a></button>
+          </div>
+      </div>
+
+      <div class="section" id="d3DartBoard" >
+        <div class="subsection">
+          <h2>SVG Dartboard with D3</h2>
+            <button onClick="clickToOpen(3)" ><a>click to open (new tab)</a></button>
+        </div>
+      </div>     
+      
+      <div class="section" id="FPL" >
+          <div class="subsection">
+            <h2>FPL team schedules</h2>
+            <button onClick="clickToOpen(4)" ><a>click to open (new tab)</a></button>
+          </div>
+        </div>     
+        
+    </div>
+
+    <div class="footer" id="pageloc" >
+      <span id="loc"></span>
+    </div>
+
+  </body>
+<script>
+let pageLoc = location.href;
+let clickArr = [];
+let serverUrl = pageLoc.split("/")[2];
+// console.log(  "pageLoc",pageLoc, "\nserverUrl", serverUrl );
+/*
+  on github referring to base (https://jaydevdo.github.io) + shortName + pg
+  on local referring to base (127.0.0.1) + url + shortName + pg
+  except angular9 which is served on "localhost:4200" + pg
+*/
+const sites = [
+  {shortName: "CV-JQ",        url:"CV",         pg:"index.html",  longName: "My CV with JQuery (UI)" },
+  {shortName: "CVNGJS",       url:"CV",         pg:"index.html",  longName: "My CV with AngularJS" },
+  {shortName: "CVNGV9",       url:":4200",      pg:"index.html" , longName: "My CV with Angular 9"},
+  {shortName: "d3DartBoard",  url:"D3DARTBOARD",pg:"docs/index.html",  longName: "Dartboard with D3" },
+  {shortName: "FPL",          url:"FPL",        pg:"index.html",  longName: "FPL team schedules" }  
+  ];
+
+if( serverUrl !== "jaydevdo.github.io" ){
+  // served local
+  sites.forEach(site => {
+    // console.log("add clickUrl: http://"+serverUrl + "/" + site.url + "/" + site.shortName.toUpperCase() + "/" + site.pg  )
+    site.shortName==="CVNGV9"? clickArr.push("http://localhost:4200/index.html"):clickArr.push( "http://"+serverUrl+"/"+ site.url+"/"+ site.shortName.toUpperCase()+"/"+ site.pg );
+  });
+}else{
+  // served on github pages
+  console.log("site served on gh-pages");
+  sites.forEach(site => {
+    // console.log("add clickUrl: http://"+serverUrl + "/" + site.url + "/" + site.shortName.toUpperCase() + "/" + site.pg  )
+    clickArr.push( "https://jaydevdo.github.io/" + site.shortName.toUpperCase() + "/index.html")
+  });
+}
+
+// console.log("clickArr", clickArr);
+function clickToOpen(idx){  window.open(clickArr[idx]);}
+document.getElementById("loc").innerHTML = "This page is hosted on:" + serverUrl;
+
+
+
+</script>
+<link rel="stylesheet" type="text/css" href="mainpage.css">
+</html>

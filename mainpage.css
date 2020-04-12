@@ -1,0 +1,93 @@
+@font-face {
+    font-family: system;
+    font-style: normal;
+    font-weight: 300;
+    /*  src:  local(*); */
+}
+
+*{
+    font-family: "system";
+    text-rendering: optimizeLegibility !important ;
+    color-scheme: none;
+    -webkit-print-color-adjust: exact;
+    -webkit-appearance: none;
+    /* webkit-appearance can't deal with buttons correctly (chrome)
+        Value:	none | auto | button | textfield | menulist-button | <compat-auto>
+    */
+}
+
+/*
+not supported (yet)
+    -webkit-font-smooth: never !important;
+    font-smooth: never;   never | always 
+*/   
+
+body{
+    background-color: #347B98;
+    color: #f5f37c;
+}
+
+.wrapper{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+/*    overflow: scroll;  */
+}
+
+div.section{
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 3px solid black;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+}
+
+@media screen and (max-width: 400px) {
+    div.section {
+        width: content;
+    }
+}
+
+@media screen and (min-width: 401px) and (max-width: 1600px) {
+    div.section {
+        width: content;
+        max-width: 45%;
+    }
+}
+
+div.section:hover{
+    border: 5px solid #FB8604;
+}
+
+.footer{
+    bottom:1px;
+}
+
+div.subsection{
+    display:flex;
+    flex-flow: row wrap;
+    padding: 5px;
+    margin-bottom: 5px;
+    width: fit-content;
+    align-items: center;
+}
+
+div.subsection h2{
+    align-items: center;
+    color: black;
+/*  padding-left: 2%; */
+}
+
+button{
+    font-size: 32px;
+    width: fit-content;
+    margin-left: 2px;
+}
+
+
+.hidden{
+    display: none;
+}
+
