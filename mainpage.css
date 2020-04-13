@@ -12,7 +12,7 @@
     -webkit-print-color-adjust: exact;
     -webkit-appearance: none !important ;
     /* webkit-appearance can't deal with buttons correctly (chrome)
-        Value:	none | auto | button | textfield | menulist-button | <compat-auto>
+        Possible values:	none | auto (don't use) | button | textfield | menulist-button | <compat-auto>
     */
 }
 
