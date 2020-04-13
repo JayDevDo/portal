@@ -1,0 +1,92 @@
+.wrapper{
+    position: absolute;
+    left: 1%;
+    top: 1%;
+    width: 99%;
+    height: 99%;
+}
+
+#pageloc{
+    position: absolute;
+    left: 1%;
+    top: 1%;
+}
+
+#JQ{
+    position: absolute;
+    left: 1%;
+    top: 10%;
+
+}
+
+#NGJSV2{
+    position: absolute;
+    left: 1%;
+    top: 30%;
+}
+
+#DartBoard{
+    position: absolute;
+    left: 1%;
+    top: 50%;
+}
+
+
+#NGJS{
+    position: absolute;
+    left: 1%;
+    top: 75%;
+
+    -webkit-animation-delay: 5s; 
+       -moz-animation-delay: 5s;
+         -o-animation-delay: 5s;
+            animation-delay: 5s;
+
+    -webkit-animation: positionOrbit1 13s;
+       -moz-animation: positionOrbit1 13s;
+         -o-animation: positionOrbit1 13s;
+            animation: positionOrbit1 13s; 
+
+    transform-origin: 74% -25%;
+
+    -webkit-animation: myOrbit1 12s linear infinite; 
+       -moz-animation: myOrbit1 12s linear infinite; 
+         -o-animation: myOrbit1 12s linear infinite; 
+            animation: myOrbit1 12s linear infinite; 
+
+}
+
+/* Orbit 1 */
+@keyframes positionOrbit1 {
+    from {  left: 1%;  top: 75%; }
+    to {    left: 35%; top: 10%; }
+}
+
+
+@-webkit-keyframes myOrbit1 {
+    from { -webkit-transform: rotate(0deg) translateY(60%) translateX(60%) rotate(0deg); }
+    to   { -webkit-transform: rotate(360deg) translateY(60%) translateX(60%) rotate(-360deg); }
+}
+
+@-moz-keyframes myOrbit1 {
+    from { -webkit-transform: rotate(0deg) translateY(60%) translateX(60%) rotate(0deg); }
+    to   { -webkit-transform: rotate(360deg) translateY(60%) translateX(60%) rotate(-360deg); }
+}
+
+@-o-keyframes myOrbit1 {
+    from { -webkit-transform: rotate(0deg) translateY(60%) translateX(60%) rotate(0deg); }
+    to   { -webkit-transform: rotate(360deg) translateY(60%) translateX(60%) rotate(-360deg); }
+}
+
+@keyframes myOrbit1 {
+    0% { -webkit-transform: rotate(0deg) translateY(60%) translateX(60%) rotate(0deg); }
+    100%   { -webkit-transform: rotate(360deg) translateY(60%) translateX(60%) rotate(-360deg); }
+}
+
+/* Orbit 2 */
+
+
+/* Orbit 3 */
+
+
+/* Orbit 4 */
