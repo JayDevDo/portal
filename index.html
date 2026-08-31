@@ -22,15 +22,118 @@
 			{name: "JSD-AI", repo: "JSD-AI", homeX: 0.27, homeY: 0.73, color: [0, 255, 255]},
 			{name: "SVG-DARTBOARD", repo: "SVG-DARTBOARD", homeX: 0.73, homeY: 0.72, color: [255, 0, 0]}
 		];
-		const title = {text: "JayVanDo.com", x: 0, y: 0, vx: 52.5, vy: 39, width: 0, height: 0, fontSize: 48, color: [245, 243, 124]};
+		// slow: const title = {text: "JayVanDo.com", x: 0, y: 0, vx: 57.75, vy: 42.9, width: 0, height: 0, fontSize: 48, color: [245, 243, 124]};
+		// medium: const title = {text: "JayVanDo.com", x: 0, y: 0, vx: 72.2, vy: 53.6, width: 0, height: 0, fontSize: 48, color: [245, 243, 124]}; 
+		// fast: const title = {text: "JayVanDo.com", x: 0, y: 0, vx: 86.6, vy: 64.4, width: 0, height: 0, fontSize: 48, color: [245, 243, 124]};
+		const title = {text: "JayVanDo.com", x: 0, y: 0, vx: 72.2, vy: 53.6, width: 0, height: 0, fontSize: 48, color: [245, 243, 124]};
 		let width = 0;
 		let height = 0;
-		let dialRadius = 68;
+		let dialRadius = 66.7;
 		let hoveredDial = -1;
 		let lastTime = 0;
 		let started = false;
+		let boundaryEdges = [];
 
 		function siteUrl(site){ return servedGh ? `https://jaydevdo.github.io/${site.repo}/index.html` : `${location.origin}/MSI-LT-local/${site.repo}/index.html`; }
+
+		function buildBoundary(){
+			const cut = Math.min(width, height) * 0.20;
+			const cutX = cut;
+			const cutY = cut;
+
+			const points = [
+				{x: cutX, y: 0},
+				{x: width - cutX, y: 0},
+				{x: width, y: cutY},
+				{x: width, y: height - cutY},
+				{x: width - cutX, y: height},
+				{x: cutX, y: height},
+				{x: 0, y: height - cutY},
+				{x: 0, y: cutY}
+			];
+
+			boundaryEdges = [];
+
+			for(let i = 0; i < points.length; i++){
+				const a = points[i];
+				const b = points[(i + 1) % points.length];
+				const dx = b.x - a.x;
+				const dy = b.y - a.y;
+				const edgeLength = Math.hypot(dx, dy);
+				const nx = -dy / edgeLength;
+				const ny = dx / edgeLength;
+
+				boundaryEdges.push({
+					nx: nx,
+					ny: ny,
+					c: nx * a.x + ny * a.y
+				});
+			}
+		}
+
+		function dialEdgeClearance(site, edge){
+			const bottomMargin = Math.max(0, -edge.ny) * 24;
+			return edge.nx * site.x + edge.ny * site.y - edge.c - dialRadius - bottomMargin;
+		}
+
+		function dialPositionInside(x, y){
+			return boundaryEdges.every(edge => {
+				const bottomMargin = Math.max(0, -edge.ny) * 24;
+				return edge.nx * x + edge.ny * y >= edge.c + dialRadius + bottomMargin;
+			});
+		}
+
+		function constrainDial(site, reflect){
+			let edgeHit = false;
+			for(let pass = 0; pass < 2; pass++){
+				for(let edge of boundaryEdges){
+					const bottomMargin = Math.max(0, -edge.ny) * 24;
+					const required = edge.c + dialRadius + bottomMargin;
+					const current = edge.nx * site.x + edge.ny * site.y;
+					const penetration = required - current;
+					if(penetration <= 0) continue;
+
+					site.x += edge.nx * penetration;
+					site.y += edge.ny * penetration;
+					edgeHit = true;
+
+					if(reflect){
+						const towardOutside = site.vx * edge.nx + site.vy * edge.ny;
+						if(towardOutside < 0){
+							site.vx -= 2 * towardOutside * edge.nx;
+							site.vy -= 2 * towardOutside * edge.ny;
+						}
+					}
+				}
+			}
+			return edgeHit;
+		}
+
+		function constrainTitle(reflect){
+			for(let pass = 0; pass < 2; pass++){
+				for(let edge of boundaryEdges){
+					const halfTextW = title.width / 2;
+					const halfTextH = title.height / 2;
+					const titleExtent = Math.abs(edge.nx) * halfTextW + Math.abs(edge.ny) * halfTextH;
+					const margin = 12 + Math.max(0, -edge.ny) * 22;
+					const required = edge.c + titleExtent + margin;
+					const current = edge.nx * title.x + edge.ny * title.y;
+					const penetration = required - current;
+					if(penetration <= 0) continue;
+
+					title.x += edge.nx * penetration;
+					title.y += edge.ny * penetration;
+
+					if(reflect){
+						const towardOutside = title.vx * edge.nx + title.vy * edge.ny;
+						if(towardOutside < 0){
+							title.vx -= 2 * towardOutside * edge.nx;
+							title.vy -= 2 * towardOutside * edge.ny;
+						}
+					}
+				}
+			}
+		}
 
 		function resizeCanvas(){
 			const oldWidth = width || innerWidth;
@@ -43,11 +146,13 @@
 			canvas.style.width = `${width}px`;
 			canvas.style.height = `${height}px`;
 			ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-			dialRadius = Math.max(42, Math.min(64, Math.min(width, height) * 0.075));
+			// medium: dialRadius = Math.max(48.3, Math.min(73.6, Math.min(width, height) * 0.08625));
+			dialRadius = Math.max(55.5, Math.min(84.6, Math.min(width, height) * 0.0992));
 			title.fontSize = Math.max(30, Math.min(62, width * 0.055));
 			ctx.font = `600 ${title.fontSize}px Arial, sans-serif`;
 			title.width = ctx.measureText(title.text).width;
 			title.height = title.fontSize * 0.95;
+			buildBoundary();
 
 			if(!started){
 				title.x = width * 0.25;
@@ -63,13 +168,16 @@
 				});
 				started = true;
 			}else{
-				title.x = Math.min(width - title.width / 2, Math.max(title.width / 2, title.x * width / oldWidth));
-				title.y = Math.min(height - title.height / 2, Math.max(title.height / 2, title.y * height / oldHeight));
+				title.x = title.x * width / oldWidth;
+				title.y = title.y * height / oldHeight;
 				sites.forEach(site => {
-					site.x = Math.min(width - dialRadius, Math.max(dialRadius, site.x * width / oldWidth));
-					site.y = Math.min(height - dialRadius, Math.max(dialRadius, site.y * height / oldHeight));
+					site.x = site.x * width / oldWidth;
+					site.y = site.y * height / oldHeight;
 				});
 			}
+
+			constrainTitle(false);
+			sites.forEach(site => { constrainDial(site, false); });
 		}
 
 		function update(dt){
@@ -77,22 +185,23 @@
 			title.y += title.vy * dt;
 			const halfTextW = title.width / 2;
 			const halfTextH = title.height / 2;
-			if(title.x - halfTextW < 12){ title.x = 12 + halfTextW; title.vx = Math.abs(title.vx); }
-			if(title.x + halfTextW > width - 12){ title.x = width - 12 - halfTextW; title.vx = -Math.abs(title.vx); }
-			if(title.y - halfTextH < 12){ title.y = 12 + halfTextH; title.vy = Math.abs(title.vy); }
-			if(title.y + halfTextH > height - 34){ title.y = height - 34 - halfTextH; title.vy = -Math.abs(title.vy); }
+			constrainTitle(true);
 
-			const safeEdge = dialRadius + 34;
+			const safeEdge = 34;
 			sites.forEach(site => {
 				if(site.motion === "rest"){ site.vx = 0; site.vy = 0; return; }
 
 				if(site.motion === "settle"){
 					let ax = 0;
 					let ay = 0;
-					if(site.x < safeEdge) ax += (safeEdge - site.x) * 5.5;
-					if(site.x > width - safeEdge) ax -= (site.x - (width - safeEdge)) * 5.5;
-					if(site.y < safeEdge) ay += (safeEdge - site.y) * 5.5;
-					if(site.y > height - safeEdge - 24) ay -= (site.y - (height - safeEdge - 24)) * 5.5;
+					for(let edge of boundaryEdges){
+						const clearance = dialEdgeClearance(site, edge);
+						if(clearance < safeEdge){
+							const force = (safeEdge - clearance) * 5.5;
+							ax += edge.nx * force;
+							ay += edge.ny * force;
+						}
+					}
 					site.vx += ax * dt;
 					site.vy += ay * dt;
 					const damping = Math.exp(-2.6 * dt);
@@ -102,15 +211,13 @@
 
 				site.x += site.vx * dt;
 				site.y += site.vy * dt;
-				let edgeHit = false;
-				if(site.x < dialRadius){ site.x = dialRadius; site.vx = Math.abs(site.vx); edgeHit = true; }
-				if(site.x > width - dialRadius){ site.x = width - dialRadius; site.vx = -Math.abs(site.vx); edgeHit = true; }
-				if(site.y < dialRadius){ site.y = dialRadius; site.vy = Math.abs(site.vy); edgeHit = true; }
-				if(site.y > height - dialRadius - 24){ site.y = height - dialRadius - 24; site.vy = -Math.abs(site.vy); edgeHit = true; }
-				if(edgeHit && site.motion === "active"){ site.edgeBounces++; if(site.edgeBounces >= 3) site.motion = "settle"; }
+				const edgeHit = constrainDial(site, true);
+				// if(edgeHit && site.motion === "active"){ site.edgeBounces++; if(site.edgeBounces >= 3) site.motion = "settle"; }
+				if(edgeHit && site.motion === "active"){ site.edgeBounces++; if(site.edgeBounces >= 4) site.motion = "settle"; }
+
 
 				if(site.motion === "settle"){
-					const clearEdge = site.x >= safeEdge - 2 && site.x <= width - safeEdge + 2 && site.y >= safeEdge - 2 && site.y <= height - safeEdge - 22;
+					const clearEdge = boundaryEdges.every(edge => dialEdgeClearance(site, edge) >= safeEdge - 2);
 					if(clearEdge && Math.hypot(site.vx, site.vy) < 7){ site.vx = 0; site.vy = 0; site.motion = "rest"; }
 				}
 			});
@@ -131,6 +238,8 @@
 					a.y -= ny * overlap / 2;
 					b.x += nx * overlap / 2;
 					b.y += ny * overlap / 2;
+					constrainDial(a, false);
+					constrainDial(b, false);
 					const rel = (b.vx - a.vx) * nx + (b.vy - a.vy) * ny;
 					if(rel < 0){
 						const impulse = -rel * 0.88;
@@ -180,7 +289,7 @@
 
 					const moveX = site.x + nx * (overlap + 1);
 					const moveY = site.y + ny * (overlap + 1);
-					let canMove = moveX >= dialRadius && moveX <= width - dialRadius && moveY >= dialRadius && moveY <= height - dialRadius - 24;
+					let canMove = dialPositionInside(moveX, moveY);
 					if(canMove){
 						for(let j = 0; j < sites.length; j++){
 							if(j === i) continue;
@@ -189,6 +298,7 @@
 					}
 
 					const towardDial = title.vx * nx + title.vy * ny;
+					/* sticky text 
 					if(canMove){
 						site.x = moveX;
 						site.y = moveY;
@@ -202,14 +312,29 @@
 							site.motion = "active";
 							site.hitColor = title.color;
 						}
+					*/
+					if(canMove){
+						site.x = moveX;
+						site.y = moveY;
+						if(towardDial > 0){
+							const impulse = Math.max(52, towardDial * 1.35);
+							site.vx += nx * impulse + title.vx * 0.28;
+							site.vy += ny * impulse + title.vy * 0.28;
+
+							title.vx -= 2 * towardDial * nx;
+							title.vy -= 2 * towardDial * ny;
+
+							const speed = Math.hypot(site.vx, site.vy);
+							if(speed > 190){ site.vx *= 190 / speed; site.vy *= 190 / speed; }
+							site.edgeBounces = 0;
+							site.motion = "active";
+							site.hitColor = title.color;
+						}
 					}else{
 						if(towardDial > 0){ title.vx -= 2 * towardDial * nx; title.vy -= 2 * towardDial * ny; }
 						title.x -= nx * (overlap + 1);
 						title.y -= ny * (overlap + 1);
-						if(title.x - halfTextW < 12){ title.x = 12 + halfTextW; title.vx = Math.abs(title.vx); }
-						if(title.x + halfTextW > width - 12){ title.x = width - 12 - halfTextW; title.vx = -Math.abs(title.vx); }
-						if(title.y - halfTextH < 12){ title.y = 12 + halfTextH; title.vy = Math.abs(title.vy); }
-						if(title.y + halfTextH > height - 34){ title.y = height - 34 - halfTextH; title.vy = -Math.abs(title.vy); }
+						constrainTitle(true);
 					}
 				}
 			}
@@ -219,6 +344,26 @@
 			ctx.clearRect(0, 0, width, height);
 			ctx.fillStyle = "#000";
 			ctx.fillRect(0, 0, width, height);
+
+			const cut = Math.min(width, height) * 0.20;
+			const cutX = cut;
+			const cutY = cut;
+
+			ctx.beginPath();
+			ctx.moveTo(cutX, 0);
+			ctx.lineTo(width - cutX, 0);
+			ctx.lineTo(width, cutY);
+			ctx.lineTo(width, height - cutY);
+			ctx.lineTo(width - cutX, height);
+			ctx.lineTo(cutX, height);
+			ctx.lineTo(0, height - cutY);
+			ctx.lineTo(0, cutY);
+			ctx.closePath();
+
+			ctx.lineWidth = 3;
+			ctx.strokeStyle = "#f5f37c";
+			ctx.stroke();
+
 			ctx.font = `600 ${title.fontSize}px Arial, sans-serif`;
 			ctx.textAlign = "center";
 			ctx.textBaseline = "middle";
@@ -226,23 +371,29 @@
 			ctx.fillText(title.text, title.x, title.y);
 
 			sites.forEach((site, idx) => {
-				const mix = Math.max(0, 1 - Math.min(3, site.edgeBounces) / 3);
+				// const mix = Math.max(0, 1 - Math.min(3, site.edgeBounces) / 3);
+				const recoveryBounces = Math.max(0, site.edgeBounces - 1);
+				const mix = Math.max(0, 1 - Math.min(3, recoveryBounces) / 3);
 				const r = Math.round(site.color[0] + (site.hitColor[0] - site.color[0]) * mix);
 				const g = Math.round(site.color[1] + (site.hitColor[1] - site.color[1]) * mix);
 				const b = Math.round(site.color[2] + (site.hitColor[2] - site.color[2]) * mix);
 				const brightness = r * 0.299 + g * 0.587 + b * 0.114;
+
 				ctx.beginPath();
 				ctx.arc(site.x, site.y, dialRadius, 0, Math.PI * 2);
 				ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
 				ctx.fill();
+
 				ctx.lineWidth = idx === hoveredDial ? 5 : 3;
 				ctx.strokeStyle = idx === hoveredDial ? "#f5f37c" : "#111";
 				ctx.stroke();
+
 				ctx.fillStyle = brightness < 120 ? "#fff" : "#111";
 				ctx.font = `600 ${site.name.length > 8 ? Math.max(12, dialRadius * 0.23) : Math.max(16, dialRadius * 0.34)}px Arial, sans-serif`;
 				ctx.fillText(site.name, site.x, site.y);
 			});
 		}
+
 
 		function animate(now){
 			const dt = Math.min(0.033, Math.max(0, (now - lastTime) / 1000 || 0));
