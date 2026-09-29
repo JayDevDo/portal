@@ -1,0 +1,18 @@
+{
+  "text": {
+    "speed": 108,
+    "startDirection": {
+      "x": 0.8029263306,
+      "y": 0.5960782731
+    },
+    "mass": 2,
+    "bounciness": 1.0
+  },
+  "ball": {
+    "mass": 1,
+    "bounciness": 0.925,
+    "maxSpeed": 190
+  },
+  "colorChangeBounceCount": 4,
+  "stopAfterBounce": 4
+}

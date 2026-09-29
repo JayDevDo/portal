@@ -1,0 +1,57 @@
+{
+  "locations": {
+    "github": {
+      "hosts": ["jaydevdo.github.io"],
+      "origin": "https://jaydevdo.github.io",
+      "basePath": "/portal/"
+    },
+    "jvd": {
+      "hosts": ["jayvando.com", "www.jayvando.com"],
+      "origin": "https://jayvando.com",
+      "basePath": "/portal/"
+    },
+    "flask": {
+      "hosts": ["localhost", "127.0.0.1", "MSI-LT", "msi-lt"],
+      "origin": "",
+      "basePath": "/MSI-LT-local/portal/"
+    }
+  },
+  "defaultLocation": "flask",
+  "sites": [
+    {
+      "name": "FPL",
+      "path": "FPL/index.html",
+      "homeX": 0.17,
+      "homeY": 0.20,
+      "color": [128, 0, 128]
+    },
+    {
+      "name": "WSL",
+      "path": "WSL/index.html",
+      "homeX": 0.50,
+      "homeY": 0.18,
+      "color": [0, 128, 0]
+    },
+    {
+      "name": "JSD",
+      "path": "JSD/index.html",
+      "homeX": 0.83,
+      "homeY": 0.23,
+      "color": [0, 0, 139]
+    },
+    {
+      "name": "JSD-AI",
+      "path": "JSD-AI/index.html",
+      "homeX": 0.27,
+      "homeY": 0.73,
+      "color": [0, 255, 255]
+    },
+    {
+      "name": "SVG-DARTBOARD",
+      "path": "SVG-DARTBOARD/index.html",
+      "homeX": 0.73,
+      "homeY": 0.72,
+      "color": [255, 0, 0]
+    }
+  ]
+}
