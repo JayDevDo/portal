@@ -8,7 +8,7 @@
     "jvd": {
       "hosts": ["jayvando.com", "www.jayvando.com"],
       "origin": "https://jayvando.com",
-      "basePath": "/portal/"
+      "basePath": "/"
     },
     "flask": {
       "hosts": ["localhost", "127.0.0.1", "MSI-LT", "msi-lt"],
