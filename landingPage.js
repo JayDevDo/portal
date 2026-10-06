@@ -4,7 +4,20 @@ let siteData = null;
 let collision = null;
 let activeLocation = null;
 let sites = [];
-let title = {text: "JayVanDo.com", x: 0, y: 0, vx: 0, vy: 0, width: 0, height: 0, fontSize: 48, color: [245, 243, 124]};
+let title = {
+	x: 0,
+	y: 0,
+	vx: 0,
+	vy: 0,
+	width: 0,
+	height: 0,
+	lineGap: 4,
+	lines: [
+		{text: "JayVanDo.com", fontSize: 48, lineHeight: 48, width: 0},
+		{text: "", fontSize: 20, lineHeight: 20, width: 0}
+	],
+	color: [245, 243, 124]
+};
 let width = 0;
 let height = 0;
 let dialRadius = 66.7;
@@ -23,9 +36,9 @@ let controlLabelFontSize = 0;
 let rightUiColor = [140, 160, 180];
 
 const boundaryCutRatio = 0.24;
-const dialBottomMargin = 24;
+const dialBottomMargin = 0;
 const titleMargin = 12;
-const titleBottomMargin = 22;
+const titleBottomMargin = 0;
 const safeEdge = 34;
 const settleForce = 5.5;
 const settleDamping = 2.6;
@@ -186,12 +199,25 @@ function resizeCanvas(){
 	ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
 	dialRadius = Math.max(minDialRadius, Math.min(maxDialRadius, Math.min(width, height) * dialRadiusRatio));
-	title.fontSize = Math.max(minTitleFontSize, Math.min(maxTitleFontSize, width * titleFontRatio));
+	title.width = 0;
+	title.height = 0;
 
-	ctx.font = `600 ${title.fontSize}px Arial, sans-serif`;
+	let visibleTitleLines = 0;
 
-	title.width = ctx.measureText(title.text).width;
-	title.height = title.fontSize * 0.95;
+	for(const line of title.lines){
+		line.width = 0;
+
+		if(!line.text) continue;
+
+		ctx.font = `600 ${line.fontSize}px Arial, sans-serif`;
+		line.width = ctx.measureText(line.text).width;
+
+		title.width = Math.max(title.width, line.width);
+		title.height += line.lineHeight;
+		visibleTitleLines++;
+	}
+
+	if(visibleTitleLines > 1) title.height += title.lineGap * (visibleTitleLines - 1);
 
 	buildBoundary();
 
@@ -232,7 +258,6 @@ function resizeCanvas(){
 		height - cut * 0.16,
 		Math.PI / 4
 	);
-
 
 	setControl(
 		2,
@@ -671,12 +696,23 @@ function draw(){
 	ctx.strokeStyle = titleColor;
 	ctx.stroke();
 
-	ctx.font = `600 ${title.fontSize}px Arial, sans-serif`;
 	ctx.textAlign = "center";
 	ctx.textBaseline = "middle";
 	ctx.fillStyle = titleColor;
 
-	ctx.fillText(title.text, title.x, title.y);
+	const visibleTitleLines = title.lines.filter(line => line.text);
+	let titleY = title.y - title.height / 2;
+
+	for(let i = 0; i < visibleTitleLines.length; i++){
+		const line = visibleTitleLines[i];
+
+		titleY += line.lineHeight / 2;
+		ctx.font = `600 ${line.fontSize}px Arial, sans-serif`;
+		ctx.fillText(line.text, title.x, titleY);
+		titleY += line.lineHeight / 2;
+
+		if(i < visibleTitleLines.length - 1) titleY += title.lineGap;
+	}
 
 	sites.forEach((site, idx) => {
 		const recoveryBounces = Math.max(0, site.edgeBounces - 1);
@@ -732,8 +768,7 @@ async function init(){
 		siteData = await siteResponse.json();
 		collision = await collisionResponse.json();
 	}catch(error){
-		document.getElementById("pageloc").textContent = `Portal configuration error: ${error.message}`;
-		console.error(error);
+		console.error(`Portal configuration error: ${error.message}`, error);
 		return;
 	}
 
@@ -819,7 +854,7 @@ async function init(){
 
 	window.addEventListener("resize", resizeCanvas);
 
-	document.getElementById("pageloc").textContent = `This page is hosted on: ${location.host}`;
+	title.lines[1].text = location.hostname.endsWith("jayvando.com") ? "" : location.hostname;
 
 	resizeCanvas();
 
